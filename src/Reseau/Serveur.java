@@ -10,7 +10,7 @@ public class Serveur {
     public static Socket initialisationServeur() throws IOException {
         // On crée une socket serveur ( le port est passé en argument)
         ServerSocket s_ecoute = new ServerSocket(2000);
-        System.out.println("Serveur démarré sur la socket d'écoute " + s_ecoute);
+        System.out.println("Serveur joueur démarré sur la socket d'écoute " + s_ecoute);
         // Attente d'une connexion
         Socket s_service = s_ecoute.accept();
         // Une connexion a été ouverte
@@ -18,16 +18,16 @@ public class Serveur {
         return s_service;
     }
 
-
-
-
-
-
-
-
-
-
-
+    public static Socket initialisationSpectateur() throws IOException {
+        // On crée une socket serveur ( le port est passé en argument)
+        ServerSocket s_ecoute = new ServerSocket(2001);
+        System.out.println("Serveur spectateur démarré sur la socket d'écoute " + s_ecoute);
+        // Attente d'une connexion
+        Socket s_service = s_ecoute.accept();
+        // Une connexion a été ouverte
+        System.out.println("Ouverture de la connexion sur la socket de service " + s_service);
+        return s_service;
+    }
 
     //Vestige du chat, inutile pour notre projet...
 

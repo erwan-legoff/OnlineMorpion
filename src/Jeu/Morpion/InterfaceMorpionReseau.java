@@ -20,18 +20,29 @@ public class InterfaceMorpionReseau {
 
         // TODO: 12/03/20 si les deux joueurs ont le meme nom ou pion on demande de nouveau au client de rentrer son pion ou son nom
         saisirInfo(saisieJoueur, j1);
-        morpionCoteClient(j1, adversaire, morpion);
-
-        if (morpion.getNbTour()<=0) {
-            morpionCoteServeur(j1, adversaire, morpion);
+        System.out.println("Entrer votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
+        Scanner choix = new Scanner(System.in);
+        switch (choix.nextLine()){
+            case "1":
+                morpionCoteClient(j1, adversaire, morpion);
+                break;
+            case "2":
+                morpionCoteSpectateur(j1, adversaire, morpion);
+                break;
+            case "3":
+                if(morpion.getNbTour()<=0) {
+                    morpionCoteServeur(j1, adversaire, morpion);
+                }
+                break;
+            default:
+                System.out.println("Retape ton choix");
         }
-
     }
 
     public static void morpionCoteClient(Joueur j1, Joueur adversaire, Morpion morpion) {
         Socket socket;//on se essaye de se connecter a un serveur local
         try {
-                socket = Client.getSocket("10.20.116.3",2000);
+                socket = Client.getSocket("iconya.fr",2000);
                 DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
                 PrintStream socketSortie = new PrintStream ( new BufferedOutputStream(socket.getOutputStream()));
 
@@ -57,23 +68,44 @@ public class InterfaceMorpionReseau {
         }
     }
 
+    public static void morpionCoteSpectateur(Joueur j1, Joueur adversaire, Morpion morpion){
+        Socket socket; //on se essaye de se connecter a un serveur local
+        try {
+            socket = Client.getSocket("iconya.fr",2001);
+            DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
+
+            while(morpion.isPasFinDeLaPartie()) {
+                receptionMorpion(j1,morpion,socketEntree);
+            }
+
+            socket.close();
+        } catch (IOException e) {
+            System.out.println("Le client n'a pas pu se connecter");
+        }
+    }
+
     public static void morpionCoteServeur(Joueur j1, Joueur adversaire, Morpion morpion) {
         ///////////////////////////////////////////////////////Partie serveur\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Sinon on lance le serveur
         try {
             Socket s_service = Serveur.initialisationServeur();
+            Socket s_service_spectateur = Serveur.initialisationSpectateur();
             DataInputStream entreeServ = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
             PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
+            PrintStream sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
 
             miseAJourDonneesAdversaire(adversaire, entreeServ);
             envoyerDonneesJoueur(j1, sortieServ);
 
             while (morpion.isPasFinDeLaPartie()) {
                 receptionMorpion(adversaire,morpion,entreeServ);
+                envoiMorpion(adversaire,morpion,sortieServSpec);
                 morpion.jouer(0);
                 envoiMorpion(j1,morpion,sortieServ);
+                envoiMorpion(j1,morpion,sortieServSpec);
             }
             s_service.close();
+            s_service_spectateur.close();
 
         } catch (IOException e) {
             e.printStackTrace();
