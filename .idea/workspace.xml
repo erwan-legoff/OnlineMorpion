@@ -7,7 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjetTutV2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjetTutV2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588607528052</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="MAJ Spec v2">
+      <created>1588608162000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1588608162000</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,17 +104,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MAJ Spec" />
-    <option name="LAST_COMMIT_MESSAGE" value="MAJ Spec" />
+    <MESSAGE value="MAJ Spec v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="MAJ Spec v2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1588604021814">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="905" y="294" key="CommitChangelistDialog2" timestamp="1588608151231">
+    <state x="905" y="294" key="CommitChangelistDialog2" timestamp="1588608161612">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608151231" />
+    <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -126,14 +137,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state x="760" y="274" key="SettingsEditor" timestamp="1588608131721">
+    <state x="760" y="274" key="SettingsEditor" timestamp="1588608353626">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="570" y="199" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1588605716467" />
-    <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608131721" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1588607529422">
+    <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608353626" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1588608165705">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607529422" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
   </component>
 </project>

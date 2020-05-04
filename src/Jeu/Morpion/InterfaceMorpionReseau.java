@@ -77,6 +77,7 @@ public class InterfaceMorpionReseau {
             miseAJourDonneesAdversaire(adversaire,socketEntree);
             while(morpion.isPasFinDeLaPartie()) {
                 receptionMorpion(j1,morpion,socketEntree);
+                receptionMorpion(adversaire,morpion,socketEntree);
             }
 
             socket.close();
@@ -102,10 +103,10 @@ public class InterfaceMorpionReseau {
 
             while (morpion.isPasFinDeLaPartie()) {
                 receptionMorpion(adversaire,morpion,entreeServ);
-                envoiMorpion(adversaire,morpion,sortieServSpec);
+                envoiMorpionSpec(adversaire,morpion,sortieServSpec);
                 morpion.jouer(0);
                 envoiMorpion(j1,morpion,sortieServ);
-                envoiMorpion(j1,morpion,sortieServSpec);
+                envoiMorpionSpec(j1,morpion,sortieServSpec);
             }
             s_service.close();
             s_service_spectateur.close();
