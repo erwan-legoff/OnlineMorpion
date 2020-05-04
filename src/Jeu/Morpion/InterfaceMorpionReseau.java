@@ -76,8 +76,8 @@ public class InterfaceMorpionReseau {
             miseAJourDonneesAdversaire(j1,socketEntree);
             miseAJourDonneesAdversaire(adversaire,socketEntree);
             while(morpion.isPasFinDeLaPartie()) {
-                receptionMorpion(j1,morpion,socketEntree);
                 receptionMorpion(adversaire,morpion,socketEntree);
+                receptionMorpion(j1,morpion,socketEntree);
             }
 
             socket.close();
