@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588608162000</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MAJ Spec v3">
+      <created>1588608363231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1588608363231</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,17 +112,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MAJ Spec" />
     <MESSAGE value="MAJ Spec v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="MAJ Spec v2" />
+    <MESSAGE value="MAJ Spec v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="MAJ Spec v3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1588604021814">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="905" y="294" key="CommitChangelistDialog2" timestamp="1588608161612">
+    <state x="905" y="294" key="CommitChangelistDialog2" timestamp="1588608362570">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
+    <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608362570" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -137,14 +145,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state x="760" y="274" key="SettingsEditor" timestamp="1588608353626">
+    <state x="760" y="274" key="SettingsEditor" timestamp="1588608523729">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="570" y="199" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1588605716467" />
-    <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608353626" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1588608165705">
+    <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608523729" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1588608365815">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608365815" />
   </component>
 </project>
