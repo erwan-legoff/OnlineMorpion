@@ -26,21 +26,21 @@ public class Morpion {
     }
 
     public void jouer(int idJoueur){
-        if (isPasFinDeLaPartie()) {
-            System.out.printf("C'est a toi de jouer \n");
+        if (peutContinuerPartie()) {
+            System.out.println("C'est a toi de jouer \n");
             Joueur joueur = listeDesJoueurs.get(idJoueur);
             do {
                 joueur.setPositionJ(saisirEntier() - 1);
-            } while (!onPeutJouerSurCetteCase(idJoueur));
+            } while (!estCoupValide(idJoueur));
             grilleDuMorpion[joueur.getPositionJ()] = joueur.getPiont();
         }
 
     }
-    public void remplirGrilleAvecUncoup(int coup,String piont){
+    public void ajouterUnCoup(int coup, String piont){
         grilleDuMorpion[coup] = piont;
     }
 
-    public boolean onPeutJouerSurCetteCase(int idJoueur){
+    public boolean estCoupValide(int idJoueur){
         Joueur joueur = listeDesJoueurs.get(idJoueur);
 
         if (joueur.getPositionJ() < 0 || joueur.getPositionJ()>8) {
@@ -58,16 +58,16 @@ public class Morpion {
 
 
 
-    public boolean isPasFinDeLaPartie(){
+    public boolean peutContinuerPartie(){
 
-        if (isGagner())
+        if (partieGagnee())
             afficherGagnant();
 
         if (nbTour>=9 ) {
             System.out.print("Egalite : Fin de la partie");
             return false;
         }
-        if (isGagner()){
+        if (partieGagnee()){
             System.out.println("Fin de la partie");
             return false;
         }
@@ -81,7 +81,7 @@ public class Morpion {
         }
     }
 
-    private boolean isGagner() {
+    private boolean partieGagnee() {
         String piont;
         int cptDePoint=0;// on init un cpt de point
         for (int i = 0; i < casGagnants.length; i++) { //on vien parcourir le tableau des cas gagnants
@@ -116,7 +116,7 @@ public class Morpion {
             lu = Integer.parseInt(s);
         }
         catch(NumberFormatException ex){
-            System.out.println("Ce n'est pas un entier valide");
+            System.err.println("Ce n'est pas un entier valide");
         }
         return lu;
     }

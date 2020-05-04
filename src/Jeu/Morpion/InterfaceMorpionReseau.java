@@ -46,20 +46,21 @@ public class InterfaceMorpionReseau {
                 DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
                 PrintStream socketSortie = new PrintStream ( new BufferedOutputStream(socket.getOutputStream()));
 
-                envoyerDonneesJoueur(j1, socketSortie);
+                pushInfoJoueur(j1, socketSortie);
 
-                miseAJourDonneesAdversaire(adversaire, socketEntree);
+                pullInfoJoueur(adversaire, socketEntree);
 
 
-            while(morpion.isPasFinDeLaPartie()) {
-
+            while(morpion.peutContinuerPartie()) {
+                System.out.println(morpion);
                 morpion.jouer(0);
+                System.out.println(morpion);
                 //On envoie un message puis on attend une réponse
-                envoiMorpion(j1, morpion, socketSortie);
+                pushMorpion(j1, morpion, socketSortie);
                 //test
 
                 //on reçoit les données
-                receptionMorpion(adversaire, morpion, socketEntree);
+                pullMorpion(adversaire, morpion, socketEntree);
             }
 
             socket.close();
@@ -68,21 +69,25 @@ public class InterfaceMorpionReseau {
         }
     }
 
-    public static void morpionCoteSpectateur(Joueur j1, Joueur adversaire, Morpion morpion){
+    public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on se essaye de se connecter a un serveur local
         try {
             socket = Client.getSocket("iconya.fr",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
-            miseAJourDonneesAdversaire(j1,socketEntree);
-            miseAJourDonneesAdversaire(adversaire,socketEntree);
-            while(morpion.isPasFinDeLaPartie()) {
-                receptionMorpion(adversaire,morpion,socketEntree);
-                receptionMorpion(j1,morpion,socketEntree);
+            pullInfoJoueur(joueurServeur,socketEntree);
+
+            pullInfoJoueur(joueurClient,socketEntree);
+
+            while(morpion.peutContinuerPartie()) {
+                pullMorpion(joueurClient,morpion,socketEntree);
+                System.out.println(morpion);
+                pullMorpion(joueurServeur,morpion,socketEntree);
+                System.out.println(morpion);
             }
 
             socket.close();
         } catch (IOException e) {
-            System.out.println("Le client n'a pas pu se connecter");
+            System.err.println("Le client n'a pas pu se connecter");
         }
     }
 
@@ -96,17 +101,20 @@ public class InterfaceMorpionReseau {
             PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
             PrintStream sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
 
-            miseAJourDonneesAdversaire(adversaire, entreeServ);
-            envoyerDonneesJoueur(j1, sortieServ);
-            envoyerDonneesJoueur(j1, sortieServSpec);
-            envoyerDonneesJoueur(adversaire, sortieServSpec);
+            pullInfoJoueur(adversaire, entreeServ);
+            pushInfoJoueur(j1, sortieServ);
+            pushInfoJoueur(j1, sortieServSpec);
+            pushInfoJoueur(adversaire, sortieServSpec);
 
-            while (morpion.isPasFinDeLaPartie()) {
-                receptionMorpion(adversaire,morpion,entreeServ);
-                envoiMorpionSpec(adversaire,morpion,sortieServSpec);
+            while (morpion.peutContinuerPartie()) {
+                pullMorpion(adversaire,morpion,entreeServ);
+                pushMorpion(adversaire,morpion,sortieServSpec);
+                System.out.println(morpion);
                 morpion.jouer(0);
-                envoiMorpion(j1,morpion,sortieServ);
-                envoiMorpionSpec(j1,morpion,sortieServSpec);
+                System.out.println(morpion);
+                pushMorpion(j1,morpion,sortieServ);
+                pushMorpion(j1,morpion,sortieServSpec);
+
             }
             s_service.close();
             s_service_spectateur.close();
@@ -116,24 +124,20 @@ public class InterfaceMorpionReseau {
         }
     }
 
-    public static void receptionMorpion(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
+    public static void pullMorpion(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
         adversaire.setPositionJ(Integer.parseInt(Client.recevoirDonnee(socketEntree)));
         morpion.incrementerNbTour();
         //Puis on met a jour le morpion
-        morpion.remplirGrilleAvecUncoup(adversaire.getPositionJ(), adversaire.getPiont());
-        System.out.println(morpion);
+        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
+
     }
 
-    public static void envoiMorpion(Joueur j1, Morpion morpion, PrintStream socketSortie) {
+    public static void pushMorpion(Joueur j1, Morpion morpion, PrintStream socketSortie) {
         Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
         morpion.incrementerNbTour();
-        System.out.println(morpion);
+
     }
 
-    public static void envoiMorpionSpec(Joueur j1, Morpion morpion, PrintStream socketSortie) {
-        Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
-        morpion.incrementerNbTour();
-    }
 
     public static void saisirInfo(Scanner saisieJoueur, Joueur j1) {
         saisirNomJoueur(saisieJoueur, j1);
@@ -152,13 +156,13 @@ public class InterfaceMorpionReseau {
         j1.setPiont(piontJoueur);
     }
 
-    public static void envoyerDonneesJoueur(Joueur j1, PrintStream socketSortie) {
+    public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
         String pack = j1.getNomJ()+" "+j1.getPiont();
         Client.envoyerDonnee(pack,socketSortie);
     }
 
-    public static void miseAJourDonneesAdversaire(Joueur adversaire, DataInputStream entreeServ) throws IOException {
+    public static void pullInfoJoueur(Joueur adversaire, DataInputStream entreeServ) throws IOException {
         String packRecu = Client.recevoirDonnee(entreeServ);
         String[]infoAdversaire = packRecu.split(" ");
         adversaire.setNomJ(infoAdversaire[0]);
