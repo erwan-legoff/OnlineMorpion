@@ -73,7 +73,8 @@ public class InterfaceMorpionReseau {
         try {
             socket = Client.getSocket("iconya.fr",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
-
+            miseAJourDonneesAdversaire(j1,socketEntree);
+            miseAJourDonneesAdversaire(adversaire,socketEntree);
             while(morpion.isPasFinDeLaPartie()) {
                 receptionMorpion(j1,morpion,socketEntree);
             }
@@ -96,6 +97,8 @@ public class InterfaceMorpionReseau {
 
             miseAJourDonneesAdversaire(adversaire, entreeServ);
             envoyerDonneesJoueur(j1, sortieServ);
+            envoyerDonneesJoueur(j1, sortieServSpec);
+            envoyerDonneesJoueur(adversaire, sortieServSpec);
 
             while (morpion.isPasFinDeLaPartie()) {
                 receptionMorpion(adversaire,morpion,entreeServ);
@@ -124,6 +127,11 @@ public class InterfaceMorpionReseau {
         Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
         morpion.incrementerNbTour();
         System.out.println(morpion);
+    }
+
+    public static void envoiMorpionSpec(Joueur j1, Morpion morpion, PrintStream socketSortie) {
+        Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
+        morpion.incrementerNbTour();
     }
 
     public static void saisirInfo(Scanner saisieJoueur, Joueur j1) {
