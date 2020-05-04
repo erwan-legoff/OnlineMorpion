@@ -1,0 +1,69 @@
+package Jeu.Morpion;
+
+public class Joueur {
+    private String nomJ;
+    //Recuperer l'adresse ip
+    private String ipDuJoueur;
+    private String piont;
+    private int Score;
+    private boolean gagner;
+    private int positionJ;
+    private boolean cTonTour;//qui commence? WARNING
+
+    public Joueur(String nomJ, String ipDuJoueur, String piont) {
+        this.nomJ = nomJ;
+        this.ipDuJoueur = ipDuJoueur;
+        this.piont = piont;
+        cTonTour = false;
+    }
+    public String getPiont() {
+        return piont;
+    }
+
+    void setGagner(boolean gagner) {
+        this.gagner = gagner;
+    }
+
+    public boolean isGagner() {
+        return gagner;
+    }
+
+    public String getIpDuJoueur() {
+        return ipDuJoueur;
+    }
+    public int getPositionJ(){
+        return positionJ;
+    }
+
+    public void setPositionJ(int positionJ) {
+        this.positionJ = positionJ;
+    }
+
+    public void setcTonTour(boolean cTonTour) {
+        this.cTonTour = cTonTour;
+    }
+
+    public boolean iscTonTour() {
+        return cTonTour;
+    }
+
+    public void setPiont(String piont) {
+        // TODO: 12/03/20 Penser au cas ou les joueurs on le meme piont pas trop important
+        if (!piont.equals("") && !piont.equals(" ") && piont.length() == 1)
+            this.piont = piont;
+    }
+
+    public String getNomJ() {
+        return nomJ;
+    }
+
+    public void setNomJ(String nomJ) {
+        if(!nomJ.contains(" ")&& !nomJ.equals(""))
+            this.nomJ = nomJ;
+    }
+
+    @Override
+    public String toString() {
+        return  nomJ +" "+piont;
+    }
+}
