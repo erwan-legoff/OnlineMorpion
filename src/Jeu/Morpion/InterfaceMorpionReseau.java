@@ -96,24 +96,35 @@ public class InterfaceMorpionReseau {
         //Sinon on lance le serveur
         try {
             Socket s_service = Serveur.initialisationServeur();
-            Socket s_service_spectateur = Serveur.initialisationSpectateur();
             DataInputStream entreeServ = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
             PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
-            PrintStream sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
 
             pullInfoJoueur(adversaire, entreeServ);
             pushInfoJoueur(j1, sortieServ);
-            pushInfoJoueur(j1, sortieServSpec);
-            pushInfoJoueur(adversaire, sortieServSpec);
 
+//            Socket s_service_spectateur = Serveur.initialisationSpectateur();//fonction bloquante
+//            PrintStream sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
+            ThreadSpectateur threadSpectateur = new ThreadSpectateur();
+            threadSpectateur.start();
+            Socket s_service_spectateur=null;
+
+
+
+            // TODO: 06/05/2020 Attention si le spectateur ce connecte au millieu de la partie il va reçevoir que les dérniers coups
             while (morpion.peutContinuerPartie()) {
+                s_service_spectateur= threadSpectateur.getS_service_spectateur();
+                PrintStream sortieServSpec = threadSpectateur.getSortieServSpec();
+                if (s_service_spectateur != null)
+                    pushInfoPourLeSpectateur(j1, adversaire, sortieServSpec);
                 pullMorpion(adversaire,morpion,entreeServ);
-                pushMorpion(adversaire,morpion,sortieServSpec);
+                if (s_service_spectateur != null)
+                    pushMorpion(adversaire,morpion,sortieServSpec);
                 System.out.println(morpion);
                 morpion.jouer(0);
                 System.out.println(morpion);
                 pushMorpion(j1,morpion,sortieServ);
-                pushMorpion(j1,morpion,sortieServSpec);
+                if (s_service_spectateur != null)
+                    pushMorpion(j1,morpion,sortieServSpec);
 
             }
             s_service.close();
@@ -122,6 +133,11 @@ public class InterfaceMorpionReseau {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void pushInfoPourLeSpectateur(Joueur j1, Joueur adversaire, PrintStream sortieServSpec) {
+        pushInfoJoueur(j1, sortieServSpec);
+        pushInfoJoueur(adversaire, sortieServSpec);
     }
 
     public static void pullMorpion(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
