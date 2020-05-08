@@ -1,0 +1,69 @@
+<changelist name="Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]" date="1588608185871" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 04/05/2020 18:02 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Joueur.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Reseau/MainChat.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Reseau/MainChat.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/MainChat.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/JeuMorpion.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/JeuMorpion.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/JeuMorpion.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/InterfaceMorpionReseau.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/MainClientServeur.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/MainClientServeur.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/MainClientServeur.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/Serveur$1$1.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/Serveur$1$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Serveur$1$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/Serveur$1.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/Serveur$1.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Serveur$1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/Serveur.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/Serveur.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Serveur.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Morpion.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Reseau/Client.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Reseau/Client.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Client.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/Reseau/Serveur.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/Reseau/Serveur.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Serveur1.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/TestThread.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/TestThread.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/TestThread.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/ProjetTutV2/testSocket/Client.class" />
+    <option name="AFTER_PATH" value="out/production/ProjetTutV2/testSocket/Client.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04_05_2020_18_02_[Default_Changelist]/Client1.class" />
+  </binary>
+</changelist>
