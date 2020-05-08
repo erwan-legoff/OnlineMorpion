@@ -72,7 +72,7 @@ public class InterfaceMorpionReseau {
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on se essaye de se connecter a un serveur local
         try {
-            socket = Client.getSocket("iconya.fr",2001);
+            socket = Client.getSocket("localhost",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
             pullInfoJoueur(joueurServeur,socketEntree);
 
@@ -107,13 +107,15 @@ public class InterfaceMorpionReseau {
             ThreadSpectateur threadSpectateur = new ThreadSpectateur();
             threadSpectateur.start();
             Socket s_service_spectateur=null;
-
+            PrintStream sortieServSpec = null;
 
 
             // TODO: 06/05/2020 Attention si le spectateur ce connecte au millieu de la partie il va reçevoir que les dérniers coups
             while (morpion.peutContinuerPartie()) {
-                s_service_spectateur= threadSpectateur.getS_service_spectateur();
-                PrintStream sortieServSpec = threadSpectateur.getSortieServSpec();
+                if(s_service_spectateur == null) {
+                    s_service_spectateur = threadSpectateur.getS_service_spectateur();
+                    sortieServSpec = threadSpectateur.getSortieServSpec();
+                }
                 if (s_service_spectateur != null)
                     pushInfoPourLeSpectateur(j1, adversaire, sortieServSpec);
                 pullMorpion(adversaire,morpion,entreeServ);
