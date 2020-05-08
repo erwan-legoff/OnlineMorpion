@@ -108,16 +108,21 @@ public class InterfaceMorpionReseau {
             threadSpectateur.start();
             Socket s_service_spectateur=null;
             PrintStream sortieServSpec = null;
+            boolean pasInforme = true;
 
 
             // TODO: 06/05/2020 Attention si le spectateur ce connecte au millieu de la partie il va reçevoir que les dérniers coups
             while (morpion.peutContinuerPartie()) {
                 if(s_service_spectateur == null) {
+                    System.out.println("On initialise les trucs");
                     s_service_spectateur = threadSpectateur.getS_service_spectateur();
                     sortieServSpec = threadSpectateur.getSortieServSpec();
                 }
-                if (s_service_spectateur != null)
+                if (s_service_spectateur != null && pasInforme) {
+                    System.out.println("pasinformz");
                     pushInfoPourLeSpectateur(j1, adversaire, sortieServSpec);
+                    pasInforme = false;
+                }
                 pullMorpion(adversaire,morpion,entreeServ);
                 if (s_service_spectateur != null)
                     pushMorpion(adversaire,morpion,sortieServSpec);
