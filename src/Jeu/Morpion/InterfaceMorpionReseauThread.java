@@ -87,7 +87,7 @@ public class InterfaceMorpionReseauThread {
 
             socket.close();
         } catch (IOException e) {
-            System.err.println("Le client n'a pas pu se connecter");
+            System.err.println("Le spectateur n'a pas pu se connecter");
         }
     }
 
