@@ -72,7 +72,7 @@ public class InterfaceMorpionReseau {
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on se essaye de se connecter a un serveur local
         try {
-            socket = Client.getSocket("iconya.fr",2001);
+            socket = Client.getSocket("localhost",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
             pullInfoJoueur(joueurServeur,socketEntree);
 
@@ -141,7 +141,7 @@ public class InterfaceMorpionReseau {
 
     public static void saisirInfo(Scanner saisieJoueur, Joueur j1) {
         saisirNomJoueur(saisieJoueur, j1);
-        saisirPiont(saisieJoueur, j1);
+//        saisirPiont(saisieJoueur, j1);
     }
 
     public static void saisirNomJoueur(Scanner saisieJoueur, Joueur j1) {
