@@ -95,24 +95,30 @@ public class InterfaceMorpionReseauThread {
         ///////////////////////////////////////////////////////Partie serveur\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Sinon on lance le serveur
         try {
+            ThreadSpectateur threadSpectateur = new ThreadSpectateur();
             Socket s_service = Serveur.initialisationServeur();
-            Socket s_service_spectateur = Serveur.initialisationSpectateur();//fonction bloquante
+
             DataInputStream entreeServ = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
             PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
-            PrintStream sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
+
+            threadSpectateur.start();
+            Socket s_service_spectateur=threadSpectateur.getS_service_spectateur();
+            PrintStream sortieServSpec=threadSpectateur.getSortieServSpec();
 
             pullInfoJoueur(adversaire, entreeServ);
             pushInfoJoueur(j1, sortieServ);
             pushInfoJoueurAuSpect(j1, adversaire, sortieServSpec);
 
-            while (morpion.peutContinuerPartie()) {
+            while (morpion.peutContinuerPartie()){
                 pullMorpion(adversaire,morpion,entreeServ);
-                pushMorpion(adversaire,morpion,sortieServSpec);
+                if (threadSpectateur.isConnected())
+                    pushMorpion(adversaire,morpion,sortieServSpec);
                 System.out.println(morpion);
                 morpion.jouer(0);
                 System.out.println(morpion);
                 pushMorpion(j1,morpion,sortieServ);
-                pushMorpion(j1,morpion,sortieServSpec);
+                if (threadSpectateur.isConnected())
+                    pushMorpion(j1,morpion,sortieServSpec);
 
             }
             s_service.close();

@@ -10,12 +10,15 @@ import java.net.Socket;
 public class ThreadSpectateur extends Thread {
     private Socket s_service_spectateur;
     private PrintStream sortieServSpec;
+    private boolean connected = false;
 
     @Override
     public void run() {
         try {
             s_service_spectateur= Serveur.initialisationSpectateur();
             sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
+            connected = true;
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,5 +38,9 @@ public class ThreadSpectateur extends Thread {
 
     public PrintStream getSortieServSpec() {
         return sortieServSpec;
+    }
+
+    public boolean isConnected() {
+        return connected;
     }
 }
