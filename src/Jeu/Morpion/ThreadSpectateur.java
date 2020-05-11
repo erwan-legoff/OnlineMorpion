@@ -16,12 +16,13 @@ public class ThreadSpectateur extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println("On rentre de la run");
+
             s_service_spectateur= Serveur.initialisationSpectateur();
-            System.out.println("Le spectateur n'est pas enovre");
+
             sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
-            System.out.println("Le spectateur connecté");
+
             connected = true;
+            System.out.println("Le spectateur est connecté");
 
         } catch (IOException e) {
             e.printStackTrace();
