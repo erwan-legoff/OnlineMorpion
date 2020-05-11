@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Morpion {
-    private ArrayList<Joueur> listeDesJoueurs;
+    private final ArrayList<Joueur> listeDesJoueurs;
     private boolean finDeLaPartie;
     private Joueur leGagnant;
     private String[] grilleDuMorpion;

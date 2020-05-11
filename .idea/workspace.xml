@@ -7,6 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +218,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589212620345</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="le c'est à ton tour est au bon endroit&#10;les points peuvent être supérieur à 3">
+      <created>1589212953599</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1589212953599</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor gagner">
+      <created>1589213063516</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1589213063516</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +263,9 @@
     <MESSAGE value="optimisation partieGagnee : return false si nbTour&lt;3&#10;Optimisation peutContinuerPartie : Partie gagnée est compute qu'une fois.&#10;Corrections fautes, changement du String avec nottament un builder" />
     <MESSAGE value="optimisation peutContinuerPartie : va plus vite si si la partie peut continuer" />
     <MESSAGE value="refactor rapide" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor rapide" />
+    <MESSAGE value="le c'est à ton tour est au bon endroit&#10;les points peuvent être supérieur à 3" />
+    <MESSAGE value="refactor gagner" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor gagner" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
@@ -262,12 +280,12 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="526" y="88" key="CommitChangelistDialog2" timestamp="1589212619958">
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589213063156">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
     <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589035362566" />
-    <state x="526" y="88" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589212619958" />
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589213063156" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
