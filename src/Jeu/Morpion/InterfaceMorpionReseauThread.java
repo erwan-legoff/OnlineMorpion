@@ -10,28 +10,28 @@ import java.util.Scanner;
 
 public class InterfaceMorpionReseauThread {
     public static void main(String[] args) {
-        Scanner saisieJoueur = new Scanner(System.in);
+
         ArrayList<Joueur> listeJoueurs = new ArrayList<Joueur>();
-        Joueur j1 = new Joueur("Player1","pouet","X");
-        Joueur adversaire = new Joueur("Player2","pouette","O");
-        listeJoueurs.add(j1);
-        listeJoueurs.add(adversaire);
+        Joueur JoueurClient = new Joueur("Client","pouet","X");
+        Joueur JoueurServeur = new Joueur("Serveur","pouette","O");
+        listeJoueurs.add(JoueurClient);
+        listeJoueurs.add(JoueurServeur);
         Morpion morpion = new Morpion(listeJoueurs);
 
         // TODO: 12/03/20 si les deux joueurs ont le meme nom ou pion on demande de nouveau au client de rentrer son pion ou son nom
-        saisirInfo(saisieJoueur, j1);
+
         System.out.println("Entrer votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
         Scanner choix = new Scanner(System.in);
         switch (choix.nextLine()){
             case "1":
-                morpionCoteClient(j1, adversaire, morpion);
+                morpionCoteClient(JoueurClient, JoueurServeur, morpion);
                 break;
             case "2":
-                morpionCoteSpectateur(j1, adversaire, morpion);
+                morpionCoteSpectateur(JoueurClient, JoueurServeur, morpion);
                 break;
             case "3":
                 if(morpion.getNbTour()<=0) {
-                    morpionCoteServeur(j1, adversaire, morpion);
+                    morpionCoteServeur(JoueurClient, JoueurServeur, morpion);
                 }
                 break;
             default:
@@ -39,26 +39,28 @@ public class InterfaceMorpionReseauThread {
         }
     }
 
-    public static void morpionCoteClient(Joueur j1, Joueur adversaire, Morpion morpion) {
+    public static void morpionCoteClient(Joueur joueurClient, Joueur joueurServeur, Morpion morpion) {
         Socket socket;//on se essaye de se connecter a un serveur local
         try {
+
+                saisirInfo(joueurClient);
                 socket = Client.getSocket("iconya.fr",2000);
                 DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
                 PrintStream socketSortie = new PrintStream ( new BufferedOutputStream(socket.getOutputStream()));
 
-                pushInfoJoueur(j1, socketSortie);
+                pushInfoJoueur(joueurClient, socketSortie);
 
-                pullInfoJoueur(adversaire, socketEntree);
+                pullInfoJoueur(joueurServeur, socketEntree);
 
 
             while(morpion.peutContinuerPartie()) {
                 jouerTour(morpion);
                 //On envoie un message puis on attend une réponse
-                pushCoup(j1, morpion, socketSortie);
+                pushCoup(joueurClient, socketSortie);
                 //test
 
                 //on reçoit les données
-                pullCoup(adversaire, morpion, socketEntree);
+                pullCoup(joueurServeur, morpion, socketEntree);
             }
 
             socket.close();
@@ -80,27 +82,33 @@ public class InterfaceMorpionReseauThread {
         try {
             socket = Client.getSocket("localhost",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
+
             pullGrille(morpion,socketEntree);
             pullInfoJoueur(joueurServeur,socketEntree);
             pullInfoJoueur(joueurClient,socketEntree);
             System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
+            morpion.setNbTour(Integer.parseInt(Client.pull(socketEntree)));
+            System.out.println("vous êtes au tour n°"+morpion.getNbTour());
+
 
             while(true) {
                 System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
                 pullCoup(joueurClient, morpion, socketEntree);
+                morpion.incrementerNbTour();
 
-                if (Client.recevoirDonnee(socketEntree).equals("FIN"))
+                if (Client.pull(socketEntree).equals("FIN"))
                     break;
                 System.out.println(morpion);
 
                 System.out.println("attente du coup de " + joueurServeur.getNomJ() + "...");
                 pullCoup(joueurServeur, morpion, socketEntree);
+                morpion.incrementerNbTour();
 
-                if (Client.recevoirDonnee(socketEntree).equals("FIN"))
+                if (Client.pull(socketEntree).equals("FIN"))
                     break;
                 System.out.println(morpion);
             }
-            Client.recevoirDonnee(socketEntree);
+            Client.pull(socketEntree);
 
             System.out.println("partie terminée");
             morpion.afficherGagnant();
@@ -110,49 +118,57 @@ public class InterfaceMorpionReseauThread {
         }
     }
 
-    public static void morpionCoteServeur(Joueur j1, Joueur adversaire, Morpion morpion) {
+    public static void morpionCoteServeur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
         ///////////////////////////////////////////////////////Partie serveur\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Sinon on lance le serveur
         try {
+            saisirInfo(joueurServeur);
             ThreadSpectateur threadSpectateur = new ThreadSpectateur();
             Socket s_service = Serveur.initialisationServeur();
 
-            DataInputStream entreeServ = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
-            PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
-
+            DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
+            PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
             threadSpectateur.start();
+
             Socket s_service_spectateur = null;
             PrintStream sortieServSpec = null;
             threadSpectateur.setS_service_spectateur(s_service_spectateur);
             threadSpectateur.setSortieServSpec(sortieServSpec);
 
-            pullInfoJoueur(adversaire, entreeServ);
-            pushInfoJoueur(j1, sortieServ);
+            pullInfoJoueur(joueurClient, entreeServJoueur);
+            while (joueurClient.getPiont().equals(joueurServeur.getPiont())) {
+                System.out.println("Change de pion stp!");
+                saisirInfo(joueurServeur);
+            }
+
+            pushInfoJoueur(joueurServeur, sortieServJoueur);
 
             boolean packetJoueurPushed = false;
 
 
             while (morpion.peutContinuerPartie()){
-                pullCoup(adversaire,morpion,entreeServ);
+                pullCoup(joueurClient,morpion,entreeServJoueur);
                 if (threadSpectateur.isConnected()) {
                     if (!packetJoueurPushed) {
                         pushGrille(morpion,threadSpectateur.getSortieServSpec());
-                        pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                        pushInfoJoueurAuSpect(joueurServeur, joueurClient, threadSpectateur.getSortieServSpec());
+                        Client.push(String.valueOf(morpion.getNbTour()),threadSpectateur.getSortieServSpec());
                     }
                     packetJoueurPushed = true;
-                    pushCoup(adversaire, morpion, threadSpectateur.getSortieServSpec());
+                    pushCoup(joueurClient, threadSpectateur.getSortieServSpec());
 
                     pushEtatPartieAuSpec(morpion, threadSpectateur);
                 }
                 jouerTour(morpion);
-                pushCoup(j1,morpion,sortieServ);
+                pushCoup(joueurServeur, sortieServJoueur);
                 if (threadSpectateur.isConnected() && packetJoueurPushed) {
-                    pushCoup(j1,morpion,threadSpectateur.getSortieServSpec());
+                    pushCoup(joueurServeur, threadSpectateur.getSortieServSpec());
+
                     pushEtatPartieAuSpec(morpion, threadSpectateur);
                 }
 
             }
-            Client.envoyerDonnee("1",threadSpectateur.getSortieServSpec());
+            Client.push("1",threadSpectateur.getSortieServSpec());
             s_service.close();
             threadSpectateur.getS_service_spectateur().close();
 
@@ -163,9 +179,9 @@ public class InterfaceMorpionReseauThread {
 
     private static void pushEtatPartieAuSpec(Morpion morpion, ThreadSpectateur threadSpectateur) {
         if (!morpion.peutContinuerPartie())
-            Client.envoyerDonnee("FIN", threadSpectateur.getSortieServSpec());
+            Client.push("FIN", threadSpectateur.getSortieServSpec());
         else
-            Client.envoyerDonnee("CONTINUE", threadSpectateur.getSortieServSpec());
+            Client.push("CONTINUE", threadSpectateur.getSortieServSpec());
     }
 
     private static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
@@ -173,11 +189,11 @@ public class InterfaceMorpionReseauThread {
         for (int i = 0; i < 9 ; i++) {
             aEnvoyer.append(morpion.getCaseGrilleDuMorpion(i));
         }
-        Client.envoyerDonnee(aEnvoyer.toString(),sortieServSpec);
+        Client.push(aEnvoyer.toString(),sortieServSpec);
     }
-    private static void pullGrille(Morpion morpion,DataInputStream entreeServ ){
+    private static void pullGrille(Morpion morpion,DataInputStream entreeSpec ){
         try {
-            String grille = Client.recevoirDonnee(entreeServ);
+            String grille = Client.pull(entreeSpec);
             for (int i = 0; i < 9; i++) {
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
             }
@@ -186,51 +202,52 @@ public class InterfaceMorpionReseauThread {
         }
 
     }
-    private static void pushInfoJoueurAuSpect(Joueur j1, Joueur adversaire, PrintStream sortieServSpec) {
-        pushInfoJoueur(j1, sortieServSpec);
-        pushInfoJoueur(adversaire, sortieServSpec);
+    private static void pushInfoJoueurAuSpect(Joueur joueurServeur, Joueur joueurClient, PrintStream sortieServSpec) {
+        pushInfoJoueur(joueurServeur, sortieServSpec);
+        pushInfoJoueur(joueurClient, sortieServSpec);
     }
 
     public static void pullCoup(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
-        adversaire.setPositionJ(Integer.parseInt(Client.recevoirDonnee(socketEntree)));
+        adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
         //Puis on met a jour le morpion
         morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
 
     }
 
-    public static void pushCoup(Joueur j1, Morpion morpion, PrintStream socketSortie) {
-        Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
+    public static void pushCoup(Joueur j, PrintStream socketSortie) {
+        Client.push(String.valueOf(j.getPositionJ()), socketSortie);
     }
 
 
-    public static void saisirInfo(Scanner saisieJoueur, Joueur j1) {
-        saisirNomJoueur(saisieJoueur, j1);
-        saisirPiont(saisieJoueur, j1);
+    public static void saisirInfo(Joueur j) {
+        Scanner saisieJoueur = new Scanner(System.in);
+        saisirNomJoueur(saisieJoueur, j);
+        saisirPion(saisieJoueur, j);
     }
 
-    public static void saisirNomJoueur(Scanner saisieJoueur, Joueur j1) {
+    public static void saisirNomJoueur(Scanner saisie, Joueur j) {
         System.out.print("Ton nom : \n");
-        String nomJoueur = saisieJoueur.nextLine();
-        j1.setNomJ(nomJoueur);
+        String nomJoueur = saisie.nextLine();
+        j.setNomJoueur(nomJoueur);
     }
 
-    public static void saisirPiont(Scanner saisieJoueur, Joueur j1) {
+    public static void saisirPion(Scanner saisie, Joueur j) {
         System.out.print("Ton pion : \n");
-        String piontJoueur = saisieJoueur.nextLine();
-        j1.setPiont(piontJoueur);
+        String pion = saisie.nextLine();
+        j.setPion(pion);
     }
 
     public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
         String pack = j1.getNomJ()+" "+j1.getPiont();
-        Client.envoyerDonnee(pack,socketSortie);
+        Client.push(pack,socketSortie);
     }
 
     public static void pullInfoJoueur(Joueur adversaire, DataInputStream entreeServ) throws IOException {
-        String packRecu = Client.recevoirDonnee(entreeServ);
+        String packRecu = Client.pull(entreeServ);
         String[]infoAdversaire = packRecu.split(" ");
-        adversaire.setNomJ(infoAdversaire[0]);
-        adversaire.setPiont(infoAdversaire[1]);
+        adversaire.setNomJoueur(infoAdversaire[0]);
+        adversaire.setPion(infoAdversaire[1]);
     }
 
 }

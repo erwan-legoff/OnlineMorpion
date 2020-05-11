@@ -58,6 +58,9 @@ public class Morpion {
     }
 
 
+    public void setNbTour(int nbTour) {
+        this.nbTour = nbTour;
+    }
 
     public boolean peutContinuerPartie(){
         boolean partieGagnee = partieGagnee();

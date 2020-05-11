@@ -5,7 +5,6 @@ import Reseau.Serveur;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InterfaceMorpionReseau {
@@ -125,7 +124,7 @@ public class InterfaceMorpionReseau {
     }
 
     public static void pullMorpion(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
-        adversaire.setPositionJ(Integer.parseInt(Client.recevoirDonnee(socketEntree)));
+        adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
         morpion.incrementerNbTour();
         //Puis on met a jour le morpion
         morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
@@ -133,7 +132,7 @@ public class InterfaceMorpionReseau {
     }
 
     public static void pushMorpion(Joueur j1, Morpion morpion, PrintStream socketSortie) {
-        Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
+        Client.push(String.valueOf(j1.getPositionJ()), socketSortie);
         morpion.incrementerNbTour();
 
     }
@@ -147,26 +146,26 @@ public class InterfaceMorpionReseau {
     public static void saisirNomJoueur(Scanner saisieJoueur, Joueur j1) {
         System.out.print("Ton nom : \n");
         String nomJoueur = saisieJoueur.nextLine();
-        j1.setNomJ(nomJoueur);
+        j1.setNomJoueur(nomJoueur);
     }
 
     public static void saisirPiont(Scanner saisieJoueur, Joueur j1) {
         System.out.print("Ton pion : \n");
         String piontJoueur = saisieJoueur.nextLine();
-        j1.setPiont(piontJoueur);
+        j1.setPion(piontJoueur);
     }
 
     public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
         String pack = j1.getNomJ()+" "+j1.getPiont();
-        Client.envoyerDonnee(pack,socketSortie);
+        Client.push(pack,socketSortie);
     }
 
     public static void pullInfoJoueur(Joueur adversaire, DataInputStream entreeServ) throws IOException {
-        String packRecu = Client.recevoirDonnee(entreeServ);
+        String packRecu = Client.pull(entreeServ);
         String[]infoAdversaire = packRecu.split(" ");
-        adversaire.setNomJ(infoAdversaire[0]);
-        adversaire.setPiont(infoAdversaire[1]);
+        adversaire.setNomJoueur(infoAdversaire[0]);
+        adversaire.setPion(infoAdversaire[1]);
     }
 
 }

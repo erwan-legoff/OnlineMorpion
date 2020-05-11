@@ -16,12 +16,12 @@ public class Client {
     }
 
 
-    public static String recevoirDonnee(DataInputStream entree) throws IOException {
+    public static String pull(DataInputStream entree) throws IOException {
         // On affiche l'écho du serveur
         return entree.readLine();
     }
 
-    public static void envoyerDonnee(String upload, PrintStream sortie) {
+    public static void push(String upload, PrintStream sortie) {
         // On envoie le texte saisi au serveur
         sortie.println(upload);
         sortie.flush();
@@ -40,8 +40,8 @@ public class Client {
         // Saisie du texte à envoyer au serveur
         System.out.println("Texte ? ");
         if (finDeLaCommunication(upload)) return "FIN";
-        envoyerDonnee(upload, sortie);
-        return recevoirDonnee(entree);
+        push(upload, sortie);
+        return pull(entree);
     }
 
 
@@ -56,7 +56,7 @@ public class Client {
             // Si on entre "FIN", on quitte
             if (buff.equals("FIN")) break;
             // On envoie le texte saisi au serveur
-            envoyerDonnee(buff, sortie);
+            push(buff, sortie);
             // On affiche l'écho du serveur
             String buff2 = entree.readLine();
             System.out.println(buff2);

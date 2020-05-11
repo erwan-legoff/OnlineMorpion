@@ -6,9 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
+    <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="refactor + transfert du nombre de tour à tester...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reseau/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +235,21 @@
       <option name="project" value="LOCAL" />
       <updated>1589213063516</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="refactor Variable et méthode">
+      <created>1589218800829</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1589218800829</updated>
+    </task>
+    <task id="LOCAL-00017" summary="meilleur affichage du gagnant">
+      <created>1589219002543</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1589219002543</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,27 +282,31 @@
     <MESSAGE value="refactor rapide" />
     <MESSAGE value="le c'est à ton tour est au bon endroit&#10;les points peuvent être supérieur à 3" />
     <MESSAGE value="refactor gagner" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor gagner" />
+    <MESSAGE value="refactor Variable et méthode" />
+    <MESSAGE value="meilleur affichage du gagnant" />
+    <MESSAGE value="refactor + transfert du nombre de tour à tester..." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor + transfert du nombre de tour à tester..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589033256407" />
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1589034146843">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1589219445344">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589034146843" />
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1589219445344" />
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1588604021814">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589213063156">
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589219683262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
     <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589035362566" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589213063156" />
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219683262" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -329,12 +351,12 @@
     <state x="570" y="204" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589033451041" />
     <state x="570" y="199" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1588605716467" />
     <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608353626" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1589212598631">
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1589219003924">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589035365071" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589212598631" />
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219003924" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589208234996">
       <screen x="0" y="0" width="1920" height="1040" />
