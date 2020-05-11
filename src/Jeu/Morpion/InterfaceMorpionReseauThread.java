@@ -107,12 +107,14 @@ public class InterfaceMorpionReseauThread {
 
             pullInfoJoueur(adversaire, entreeServ);
             pushInfoJoueur(j1, sortieServ);
-            pushInfoJoueurAuSpect(j1, adversaire, sortieServSpec);
+
 
             while (morpion.peutContinuerPartie()){
                 pullMorpion(adversaire,morpion,entreeServ);
-                if (threadSpectateur.isConnected())
-                    pushMorpion(adversaire,morpion,sortieServSpec);
+                if (threadSpectateur.isConnected()) {
+                    pushInfoJoueurAuSpect(j1, adversaire, sortieServSpec);
+                    pushMorpion(adversaire, morpion, sortieServSpec);
+                }
                 System.out.println(morpion);
                 morpion.jouer(0);
                 System.out.println(morpion);
