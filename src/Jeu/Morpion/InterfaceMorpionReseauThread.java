@@ -85,17 +85,23 @@ public class InterfaceMorpionReseauThread {
             pullInfoJoueur(joueurClient,socketEntree);
             System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
 
-            while(morpion.peutContinuerPartie()) {
-                System.out.println("attente du coup de " + joueurClient.getNomJ()+"...");
-                pullMorpion(joueurClient,morpion,socketEntree);
+            while(true) {
+                System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
+                pullMorpion(joueurClient, morpion, socketEntree);
 
+                if (Client.recevoirDonnee(socketEntree).equals("FIN"))
+                    break;
                 System.out.println(morpion);
-                System.out.println("attente du coup de " + joueurServeur.getNomJ()+"...");
-                pullMorpion(joueurServeur,morpion,socketEntree);
 
+                System.out.println("attente du coup de " + joueurServeur.getNomJ() + "...");
+                pullMorpion(joueurServeur, morpion, socketEntree);
+
+                if (Client.recevoirDonnee(socketEntree).equals("FIN"))
+                    break;
                 System.out.println(morpion);
             }
-
+            System.out.println("partie terminée");
+            Client.recevoirDonnee(socketEntree);
             socket.close();
         } catch (IOException e) {
             System.err.println("Le spectateur n'a pas pu se connecter");
@@ -133,15 +139,23 @@ public class InterfaceMorpionReseauThread {
                     }
                     packetJoueurEnvoyer = true;
                     pushMorpion(adversaire, morpion, threadSpectateur.getSortieServSpec());
+                    if (!morpion.peutContinuerPartie())
+                        Client.envoyerDonnee("FIN",threadSpectateur.getSortieServSpec());
+                    else
+                        Client.envoyerDonnee("d",threadSpectateur.getSortieServSpec());
                 }
                 jouerTour(morpion);
                 pushMorpion(j1,morpion,sortieServ);
                 if (threadSpectateur.isConnected() && packetJoueurEnvoyer) {
                     pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
+                    if (!morpion.peutContinuerPartie())
+                        Client.envoyerDonnee("FIN",threadSpectateur.getSortieServSpec());
+                    else
+                        Client.envoyerDonnee("d",threadSpectateur.getSortieServSpec());
                 }
 
             }
-
+            Client.envoyerDonnee("1",threadSpectateur.getSortieServSpec());
             s_service.close();
             threadSpectateur.getS_service_spectateur().close();
 
