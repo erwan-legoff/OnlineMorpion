@@ -128,7 +128,7 @@ public class InterfaceMorpionReseauThread {
                 pullMorpion(adversaire,morpion,entreeServ);
                 if (threadSpectateur.isConnected()) {
                     if (!packetJoueurEnvoyer) {
-                        pushGrille(morpion,sortieServSpec);
+                        pushGrille(morpion,threadSpectateur.getSortieServSpec());
                         pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
                     }
                     packetJoueurEnvoyer = true;
