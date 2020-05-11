@@ -60,24 +60,24 @@ public class Morpion {
 
     public boolean peutContinuerPartie(){
         boolean partieGagnee = partieGagnee();
-        if (partieGagnee)
-            afficherGagnant();
+        if (!partieGagnee && nbTour<9)
+            return true;
 
         if (nbTour>=9 && !partieGagnee) {
             System.out.print("Egalité : Fin de la partie");
             return false;
         }
-        if (partieGagnee){
+            afficherGagnant();
             System.out.println("Fin de la partie");
             return false;
-        }
-        return true;
+
+
     }
 
     private void afficherGagnant() {
-        for (Joueur listeDesJoueur : listeDesJoueurs) {
-            if (listeDesJoueur.isGagner())
-                System.out.println("Le joueur qui a gagné est le joueur : " + listeDesJoueur);
+        for (Joueur joueur : listeDesJoueurs) {
+            if (joueur.isGagner())
+                System.out.println("Le gagnant est : " + joueur);
         }
     }
 
