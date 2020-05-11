@@ -52,11 +52,7 @@ public class InterfaceMorpionReseauThread {
 
 
             while(morpion.peutContinuerPartie()) {
-                System.out.println(morpion);
-                morpion.incrementerNbTour();
-                morpion.jouer(0);
-                morpion.incrementerNbTour();
-                System.out.println(morpion);
+                jouerTour(morpion);
                 //On envoie un message puis on attend une réponse
                 pushMorpion(j1, morpion, socketSortie);
                 //test
@@ -69,6 +65,14 @@ public class InterfaceMorpionReseauThread {
         } catch (IOException e) {
             System.out.println("Le client n'a pas pu se connecter");
         }
+    }
+
+    private static void jouerTour(Morpion morpion) {
+        System.out.println(morpion);
+        morpion.incrementerNbTour();
+        morpion.jouer(0);
+        morpion.incrementerNbTour();
+        System.out.println(morpion);
     }
 
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
@@ -123,11 +127,7 @@ public class InterfaceMorpionReseauThread {
                     packetJoueurEnvoyer = true;
                     pushMorpion(adversaire, morpion, threadSpectateur.getSortieServSpec());
                 }
-                System.out.println(morpion);
-                morpion.incrementerNbTour();
-                morpion.jouer(0);
-                morpion.incrementerNbTour();
-                System.out.println(morpion);
+                jouerTour(morpion);
                 pushMorpion(j1,morpion,sortieServ);
                 if (threadSpectateur.isConnected()) {
                     pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
