@@ -27,9 +27,10 @@ public class Morpion {
 
     public void jouer(int idJoueur){
         if (peutContinuerPartie()) {
-            System.out.println("C'est a toi de jouer \n");
+
             Joueur joueur = listeDesJoueurs.get(idJoueur);
             do {
+                System.out.println("C'est a toi de jouer \n");
                 joueur.setPositionJ(saisirEntier() - 1);
             } while (!estCoupValide(idJoueur));
             grilleDuMorpion[joueur.getPositionJ()] = joueur.getPiont();
@@ -96,7 +97,7 @@ public class Morpion {
                    }
                 }
             }
-            if (cptDePoint == 3) // s'il est positionné 3 fois comme un cas gagnant alors C GAGNE
+            if (cptDePoint >= 3) // s'il est positionné 3 fois comme un cas gagnant alors C GAGNE
             {
                 for (Joueur listeDesJoueur : listeDesJoueurs) {
                     if (listeDesJoueur.getPiont()== piont ) {
