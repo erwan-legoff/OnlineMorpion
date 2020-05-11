@@ -20,7 +20,7 @@ public class InterfaceMorpionReseauThread {
 
         // TODO: 12/03/20 si les deux joueurs ont le meme nom ou pion on demande de nouveau au client de rentrer son pion ou son nom
 
-        System.out.println("Entrer votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
+        System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
         Scanner choix = new Scanner(System.in);
         switch (choix.nextLine()){
             case "1":
@@ -40,7 +40,7 @@ public class InterfaceMorpionReseauThread {
     }
 
     public static void morpionCoteClient(Joueur joueurClient, Joueur joueurServeur, Morpion morpion) {
-        Socket socket;//on se essaye de se connecter a un serveur local
+        Socket socket;//on essaye de se connecter a un serveur local
         try {
 
                 saisirInfo(joueurClient);
@@ -50,6 +50,7 @@ public class InterfaceMorpionReseauThread {
 
                 pushInfoJoueur(joueurClient, socketSortie);
 
+                System.out.println("Attente des infos du serveur...");
                 pullInfoJoueur(joueurServeur, socketEntree);
 
 
@@ -78,7 +79,7 @@ public class InterfaceMorpionReseauThread {
     }
 
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
-        Socket socket; //on se essaye de se connecter a un serveur local
+        Socket socket; //on essaye de se connecter a un serveur local
         try {
             socket = Client.getSocket("localhost",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
