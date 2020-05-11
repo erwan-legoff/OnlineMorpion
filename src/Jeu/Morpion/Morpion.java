@@ -59,15 +59,15 @@ public class Morpion {
 
 
     public boolean peutContinuerPartie(){
-
-        if (partieGagnee())
+        boolean partieGagnee = partieGagnee();
+        if (partieGagnee)
             afficherGagnant();
 
-        if (nbTour>=9 ) {
+        if (nbTour>=9 && !partieGagnee) {
             System.out.print("Egalite : Fin de la partie");
             return false;
         }
-        if (partieGagnee()){
+        if (partieGagnee){
             System.out.println("Fin de la partie");
             return false;
         }
@@ -77,13 +77,15 @@ public class Morpion {
     private void afficherGagnant() {
         for (Joueur listeDesJoueur : listeDesJoueurs) {
             if (listeDesJoueur.isGagner())
-                System.out.println("Le joueur qui a gagner est le joueur : " + listeDesJoueur);
+                System.out.println("Le joueur qui a gagné est le joueur : " + listeDesJoueur);
         }
     }
 
     private boolean partieGagnee() {
         String piont;
-        int cptDePoint=0;// on init un cpt de point
+        if (nbTour<3)
+            return false;
+        int cptDePoint;// on init un cpt de point
         for (int i = 0; i < casGagnants.length; i++) { //on vien parcourir le tableau des cas gagnants
             cptDePoint = 0;
             piont = grilleDuMorpion[casGagnants[i][0]];//On initialise le piont à comparer
@@ -127,13 +129,13 @@ public class Morpion {
 
     @Override
     public String toString() {
-        String affichage = "Tour :"+nbTour+"\n Toi : "+listeDesJoueurs.get(0)+"\n Adversaire : "+listeDesJoueurs.get(1)+"\n";
+        StringBuilder affichage = new StringBuilder("Tour n°" + nbTour + "\n Ton profil : " + listeDesJoueurs.get(0) + "\n Adversaire : " + listeDesJoueurs.get(1) + "\n");
         for (int i = 7; i > 0  ; i-=3) {
             for (int j = 0; j < grilleDuMorpion.length/3 ; j++) {
-                affichage += "|"+grilleDuMorpion[i+j-1];
+                affichage.append("|").append(grilleDuMorpion[i + j - 1]);
             }
-            affichage+= "|\n";
+            affichage.append("|\n");
         }
-        return affichage;
+        return affichage.toString();
     }
 }
