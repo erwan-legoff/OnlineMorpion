@@ -83,7 +83,7 @@ public class InterfaceMorpionReseauThread {
             pullInfoJoueur(joueurServeur,socketEntree);
 
             pullInfoJoueur(joueurClient,socketEntree);
-            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + "et" + joueurClient.getNomJ());
+            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
 
             while(morpion.peutContinuerPartie()) {
                 System.out.println("attente du coup de " + joueurClient.getNomJ()+"...");
@@ -135,6 +135,9 @@ public class InterfaceMorpionReseauThread {
                 jouerTour(morpion);
                 pushMorpion(j1,morpion,sortieServ);
                 if (threadSpectateur.isConnected()) {
+                    if (!packetJoueurEnvoyer)
+                        pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                    packetJoueurEnvoyer = true;
                     pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
                 }
 
