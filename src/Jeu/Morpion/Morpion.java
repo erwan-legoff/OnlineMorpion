@@ -101,7 +101,7 @@ public class Morpion {
             {
                 for (Joueur listeDesJoueur : listeDesJoueurs) {
                     if (listeDesJoueur.getPiont()== piont ) {
-                        listeDesJoueur.setGagner(true);
+                        listeDesJoueur.setGagner();
                     }
                 }
                 return true;

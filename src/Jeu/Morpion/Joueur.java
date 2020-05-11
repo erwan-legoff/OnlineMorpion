@@ -3,7 +3,7 @@ package Jeu.Morpion;
 public class Joueur {
     private String nomJ;
     //Recuperer l'adresse ip
-    private String ipDuJoueur;
+    private final String ipDuJoueur;
     private String piont;
     private int Score;
     private boolean gagner;
@@ -15,13 +15,14 @@ public class Joueur {
         this.ipDuJoueur = ipDuJoueur;
         this.piont = piont;
         cTonTour = false;
+        gagner=false;
     }
     public String getPiont() {
         return piont;
     }
 
-    void setGagner(boolean gagner) {
-        this.gagner = gagner;
+    void setGagner() {
+        this.gagner = true;
     }
 
     public boolean isGagner() {
