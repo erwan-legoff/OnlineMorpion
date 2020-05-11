@@ -127,7 +127,7 @@ public class Morpion {
 
     @Override
     public String toString() {
-        String affichage = ""+nbTour+"\n Toi : "+listeDesJoueurs.get(0)+"\n Adversaire : "+listeDesJoueurs.get(1)+"\n";
+        String affichage = "Tour :"+nbTour+"\n Toi : "+listeDesJoueurs.get(0)+"\n Adversaire : "+listeDesJoueurs.get(1)+"\n";
         for (int i = 7; i > 0  ; i-=3) {
             for (int j = 0; j < grilleDuMorpion.length/3 ; j++) {
                 affichage += "|"+grilleDuMorpion[i+j-1];

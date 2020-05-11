@@ -53,7 +53,9 @@ public class InterfaceMorpionReseauThread {
 
             while(morpion.peutContinuerPartie()) {
                 System.out.println(morpion);
+                morpion.incrementerNbTour();
                 morpion.jouer(0);
+                morpion.incrementerNbTour();
                 System.out.println(morpion);
                 //On envoie un message puis on attend une réponse
                 pushMorpion(j1, morpion, socketSortie);
@@ -110,19 +112,26 @@ public class InterfaceMorpionReseauThread {
             pullInfoJoueur(adversaire, entreeServ);
             pushInfoJoueur(j1, sortieServ);
 
+            boolean packetJoueurEnvoyer = false;
+
 
             while (morpion.peutContinuerPartie()){
                 pullMorpion(adversaire,morpion,entreeServ);
                 if (threadSpectateur.isConnected()) {
-                    pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                    if (!packetJoueurEnvoyer)
+                        pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                    packetJoueurEnvoyer = true;
                     pushMorpion(adversaire, morpion, threadSpectateur.getSortieServSpec());
                 }
                 System.out.println(morpion);
+                morpion.incrementerNbTour();
                 morpion.jouer(0);
+                morpion.incrementerNbTour();
                 System.out.println(morpion);
                 pushMorpion(j1,morpion,sortieServ);
-                if (threadSpectateur.isConnected())
+                if (threadSpectateur.isConnected()) {
                     pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
+                }
 
             }
             s_service.close();
@@ -140,7 +149,6 @@ public class InterfaceMorpionReseauThread {
 
     public static void pullMorpion(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
         adversaire.setPositionJ(Integer.parseInt(Client.recevoirDonnee(socketEntree)));
-        morpion.incrementerNbTour();
         //Puis on met a jour le morpion
         morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
 
@@ -148,7 +156,6 @@ public class InterfaceMorpionReseauThread {
 
     public static void pushMorpion(Joueur j1, Morpion morpion, PrintStream socketSortie) {
         Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
-        morpion.incrementerNbTour();
 
     }
 
