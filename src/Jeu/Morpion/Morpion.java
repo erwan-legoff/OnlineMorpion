@@ -67,9 +67,9 @@ public class Morpion {
             System.out.print("Egalité : Fin de la partie");
             return false;
         }
-            afficherGagnant();
-            System.out.println("Fin de la partie");
-            return false;
+        afficherGagnant();
+        System.out.println("Fin de la partie");
+        return false;
 
 
     }
