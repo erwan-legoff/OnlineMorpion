@@ -102,8 +102,10 @@ public class InterfaceMorpionReseauThread {
             PrintStream sortieServ = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
 
             threadSpectateur.start();
-            Socket s_service_spectateur=threadSpectateur.getS_service_spectateur();
-            PrintStream sortieServSpec=threadSpectateur.getSortieServSpec();
+            Socket s_service_spectateur = null;
+            PrintStream sortieServSpec = null;
+            threadSpectateur.setS_service_spectateur(s_service_spectateur);
+            threadSpectateur.setSortieServSpec(sortieServSpec);
 
             pullInfoJoueur(adversaire, entreeServ);
             pushInfoJoueur(j1, sortieServ);
@@ -112,19 +114,19 @@ public class InterfaceMorpionReseauThread {
             while (morpion.peutContinuerPartie()){
                 pullMorpion(adversaire,morpion,entreeServ);
                 if (threadSpectateur.isConnected()) {
-                    pushInfoJoueurAuSpect(j1, adversaire, sortieServSpec);
-                    pushMorpion(adversaire, morpion, sortieServSpec);
+                    pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                    pushMorpion(adversaire, morpion, threadSpectateur.getSortieServSpec());
                 }
                 System.out.println(morpion);
                 morpion.jouer(0);
                 System.out.println(morpion);
                 pushMorpion(j1,morpion,sortieServ);
                 if (threadSpectateur.isConnected())
-                    pushMorpion(j1,morpion,sortieServSpec);
+                    pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
 
             }
             s_service.close();
-            s_service_spectateur.close();
+            threadSpectateur.getS_service_spectateur().close();
 
         } catch (IOException e) {
             e.printStackTrace();

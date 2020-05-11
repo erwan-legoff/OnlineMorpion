@@ -12,6 +12,7 @@ public class ThreadSpectateur extends Thread {
     private PrintStream sortieServSpec;
     private boolean connected = false;
 
+
     @Override
     public void run() {
         try {
