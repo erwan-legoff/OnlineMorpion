@@ -100,8 +100,10 @@ public class InterfaceMorpionReseauThread {
                     break;
                 System.out.println(morpion);
             }
-            System.out.println("partie terminée");
             Client.recevoirDonnee(socketEntree);
+
+            System.out.println("partie terminée");
+            morpion.afficherGagnant();
             socket.close();
         } catch (IOException e) {
             System.err.println("Le spectateur n'a pas pu se connecter");
@@ -140,13 +142,13 @@ public class InterfaceMorpionReseauThread {
                     packetJoueurPushed = true;
                     pushCoup(adversaire, morpion, threadSpectateur.getSortieServSpec());
 
-                    envoieEtatPartieAuSpec(morpion, threadSpectateur);
+                    pushEtatPartieAuSpec(morpion, threadSpectateur);
                 }
                 jouerTour(morpion);
                 pushCoup(j1,morpion,sortieServ);
                 if (threadSpectateur.isConnected() && packetJoueurPushed) {
                     pushCoup(j1,morpion,threadSpectateur.getSortieServSpec());
-                    envoieEtatPartieAuSpec(morpion, threadSpectateur);
+                    pushEtatPartieAuSpec(morpion, threadSpectateur);
                 }
 
             }
@@ -159,7 +161,7 @@ public class InterfaceMorpionReseauThread {
         }
     }
 
-    private static void envoieEtatPartieAuSpec(Morpion morpion, ThreadSpectateur threadSpectateur) {
+    private static void pushEtatPartieAuSpec(Morpion morpion, ThreadSpectateur threadSpectateur) {
         if (!morpion.peutContinuerPartie())
             Client.envoyerDonnee("FIN", threadSpectateur.getSortieServSpec());
         else

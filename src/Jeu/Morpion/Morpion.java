@@ -68,14 +68,15 @@ public class Morpion {
             System.out.print("Egalité : Fin de la partie");
             return false;
         }
-        afficherGagnant();
+
         System.out.println("Fin de la partie");
+        afficherGagnant();
         return false;
 
 
     }
 
-    private void afficherGagnant() {
+    protected void afficherGagnant() {
         for (Joueur joueur : listeDesJoueurs) {
             if (joueur.isGagner())
                 System.out.println("Le gagnant est : " + joueur);
