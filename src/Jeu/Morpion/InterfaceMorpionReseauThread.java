@@ -80,8 +80,8 @@ public class InterfaceMorpionReseauThread {
         try {
             socket = Client.getSocket("localhost",2001);
             DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
+            pullGrille(morpion,socketEntree);
             pullInfoJoueur(joueurServeur,socketEntree);
-
             pullInfoJoueur(joueurClient,socketEntree);
             System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
 
@@ -127,8 +127,10 @@ public class InterfaceMorpionReseauThread {
             while (morpion.peutContinuerPartie()){
                 pullMorpion(adversaire,morpion,entreeServ);
                 if (threadSpectateur.isConnected()) {
-                    if (!packetJoueurEnvoyer)
+                    if (!packetJoueurEnvoyer) {
+                        pushGrille(morpion,sortieServSpec);
                         pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
+                    }
                     packetJoueurEnvoyer = true;
                     pushMorpion(adversaire, morpion, threadSpectateur.getSortieServSpec());
                 }
@@ -139,6 +141,7 @@ public class InterfaceMorpionReseauThread {
                 }
 
             }
+
             s_service.close();
             threadSpectateur.getS_service_spectateur().close();
 
@@ -146,7 +149,24 @@ public class InterfaceMorpionReseauThread {
             e.printStackTrace();
         }
     }
+    private static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
+        StringBuilder aEnvoyer = new StringBuilder();
+        for (int i = 0; i < 9 ; i++) {
+            aEnvoyer.append(morpion.getCaseGrilleDuMorpion(i));
+        }
+        Client.envoyerDonnee(aEnvoyer.toString(),sortieServSpec);
+    }
+    private static void pullGrille(Morpion morpion,DataInputStream entreeServ ){
+        try {
+            String grille = Client.recevoirDonnee(entreeServ);
+            for (int i = 0; i < 9; i++) {
+                morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
     private static void pushInfoJoueurAuSpect(Joueur j1, Joueur adversaire, PrintStream sortieServSpec) {
         pushInfoJoueur(j1, sortieServSpec);
         pushInfoJoueur(adversaire, sortieServSpec);
@@ -161,7 +181,6 @@ public class InterfaceMorpionReseauThread {
 
     public static void pushMorpion(Joueur j1, Morpion morpion, PrintStream socketSortie) {
         Client.envoyerDonnee(String.valueOf(j1.getPositionJ()), socketSortie);
-
     }
 
 

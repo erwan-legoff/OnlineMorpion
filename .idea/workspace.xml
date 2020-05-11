@@ -8,9 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589214526310</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="rectification du bug lorsque le spec rejoignais pendant le tour du serveur">
+      <created>1589215075017</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1589215075017</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,26 +281,27 @@
     <MESSAGE value="le c'est à ton tour est au bon endroit&#10;les points peuvent être supérieur à 3" />
     <MESSAGE value="refactor gagner" />
     <MESSAGE value="test de correction du bug quand spect rejoind au tour serv" />
-    <option name="LAST_COMMIT_MESSAGE" value="test de correction du bug quand spect rejoind au tour serv" />
+    <MESSAGE value="rectification du bug lorsque le spec rejoignais pendant le tour du serveur" />
+    <option name="LAST_COMMIT_MESSAGE" value="rectification du bug lorsque le spec rejoignais pendant le tour du serveur" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" width="816" height="729" key="#Intentions/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589033256407" />
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1589034146843">
+    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1589215793921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589034146843" />
+    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589215793921" />
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1588604021814">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="679" y="195" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589214525096">
+    <state x="679" y="195" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589215073737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
-    <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589214525096" />
+    <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589215073737" />
     <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589213063156" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
@@ -336,11 +343,11 @@
     <state x="570" y="204" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589033451041" />
     <state x="570" y="199" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1588605716467" />
     <state x="760" y="274" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608353626" />
-    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1589214528553">
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1589215076996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
-    <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589214528553" />
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589215076996" />
     <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589212598631" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589208234996">
