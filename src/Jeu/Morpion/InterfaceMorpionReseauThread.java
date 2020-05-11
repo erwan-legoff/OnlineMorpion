@@ -134,10 +134,7 @@ public class InterfaceMorpionReseauThread {
                 }
                 jouerTour(morpion);
                 pushMorpion(j1,morpion,sortieServ);
-                if (threadSpectateur.isConnected()) {
-                    if (!packetJoueurEnvoyer)
-                        pushInfoJoueurAuSpect(j1, adversaire, threadSpectateur.getSortieServSpec());
-                    packetJoueurEnvoyer = true;
+                if (threadSpectateur.isConnected() && packetJoueurEnvoyer) {
                     pushMorpion(j1,morpion,threadSpectateur.getSortieServSpec());
                 }
 
