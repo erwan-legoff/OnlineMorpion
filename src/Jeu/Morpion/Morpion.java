@@ -64,7 +64,7 @@ public class Morpion {
             afficherGagnant();
 
         if (nbTour>=9 && !partieGagnee) {
-            System.out.print("Egalite : Fin de la partie");
+            System.out.print("Egalité : Fin de la partie");
             return false;
         }
         if (partieGagnee){
