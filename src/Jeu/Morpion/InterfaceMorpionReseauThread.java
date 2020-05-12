@@ -125,15 +125,15 @@ public class InterfaceMorpionReseauThread {
         try {
             saisirInfo(joueurServeur);
             ThreadSpectateur threadSpectateur = new ThreadSpectateur();
-            Socket s_service = Serveur.initialisationServeur();
+            Socket socketClient = Serveur.initialisationServeur();
 
-            DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(s_service.getInputStream()));
-            PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(s_service.getOutputStream()));
+            DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
+            PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
             threadSpectateur.start();
 
-            Socket s_service_spectateur = null;
+            Socket socketSpectateur = null;
             PrintStream sortieServSpec = null;
-            threadSpectateur.setS_service_spectateur(s_service_spectateur);
+            threadSpectateur.setS_service_spectateur(socketSpectateur);
             threadSpectateur.setSortieServSpec(sortieServSpec);
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
@@ -170,7 +170,7 @@ public class InterfaceMorpionReseauThread {
 
             }
             Client.push("1",threadSpectateur.getSortieServSpec());
-            s_service.close();
+            socketClient.close();
             threadSpectateur.getS_service_spectateur().close();
 
         } catch (IOException e) {
