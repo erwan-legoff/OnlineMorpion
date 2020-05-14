@@ -128,6 +128,7 @@ public class InterfaceMRMultiThread {
             Socket socketClient = Serveur.initialisationServeur();
             ThreadSpectateur threadSpectateur = new ThreadSpectateur();
             threadSpectateur.setMorpion(morpion);
+
             threadSpectateur.setJoueurClient(joueurClient);
             threadSpectateur.setJoueurServeur(joueurServeur);
             threadSpectateur.start();
@@ -154,27 +155,11 @@ public class InterfaceMRMultiThread {
             while (morpion.peutContinuerPartie()){
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurClient.setcTonTour(true);
+                System.out.println("On est dans le serveur "+joueurClient.iscTonTour());
 
-                if (threadSpectateur.isConnected()) {
-                    if (!packetJoueurPushed) {
-                        pushGrille(morpion,threadSpectateur.getSortieServSpec());
-                        pushInfoJoueurAuSpect(joueurServeur, joueurClient, threadSpectateur.getSortieServSpec());
-                        Client.push(String.valueOf(morpion.getNbTour()),threadSpectateur.getSortieServSpec());
-                    }
-                    packetJoueurPushed = true;
-                    pushCoup(joueurClient, threadSpectateur.getSortieServSpec());
-
-                    pushEtatPartieAuSpec(morpion, threadSpectateur);
-                }
                 jouerTour(morpion,joueurServeur);
-
                 pushCoup(joueurServeur, sortieServJoueur);
                 joueurServeur.setcTonTour(true);
-                if (threadSpectateur.isConnected() && packetJoueurPushed) {
-                    pushCoup(joueurServeur, threadSpectateur.getSortieServSpec());
-
-                    pushEtatPartieAuSpec(morpion, threadSpectateur);
-                }
 
             }
             Client.push("1",threadSpectateur.getSortieServSpec());

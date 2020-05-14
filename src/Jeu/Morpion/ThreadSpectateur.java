@@ -46,17 +46,19 @@ public class ThreadSpectateur extends Thread {
 
     @Override
     public void run() {
+
             try {
 
                 Socket spectateur = Serveur.initialisationSpectateur();
                 System.out.println("Connexion nouveau spectateur");
-                Thread t = new Thread(new SpectateurProcessor(spectateur,morpion,joueurServeur,joueurClient));
+                Thread t = new Thread(new SpectateurProcessor(spectateur, morpion, joueurServeur, joueurClient));
                 t.start();
                 Thread.sleep(10);
 
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
+
     }
 
     public void setS_service_spectateur(Socket s_service_spectateur) {
