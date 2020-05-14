@@ -25,7 +25,7 @@ public class JeuMorpion {
     private void jeuEnCours(ArrayList<Joueur> listDesJoueurs, Morpion morpion) {
         int nbTour = 0;
         while (morpion.peutContinuerPartie()){
-            if(morpion.estCoupValide(nbTour%2));
+            if(morpion.estCoupValide(listDesJoueurs.get(nbTour%2)));
             morpion.jouer(nbTour % 2);
             System.out.println(morpion);
             nbTour++;
