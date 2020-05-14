@@ -136,6 +136,7 @@ public class Morpion {
         return grilleDuMorpion[i];
     }
 
+
     @Override
     public String toString() {
         StringBuilder affichage = new StringBuilder("Tour n°" + nbTour + "\n Ton profil : " + listeDesJoueurs.get(0) + "\n Adversaire : " + listeDesJoueurs.get(1) + "\n");

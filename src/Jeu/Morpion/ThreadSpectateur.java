@@ -11,22 +11,52 @@ public class ThreadSpectateur extends Thread {
     private Socket s_service_spectateur;
     private PrintStream sortieServSpec;
     private boolean connected = false;
+    private Morpion morpion;
+    private Joueur joueurClient;
+    private Joueur joueurServeur;
 
+    public void setMorpion(Morpion morpion) {
+        this.morpion = morpion;
+    }
+
+    public void setJoueurClient(Joueur joueurClient) {
+        this.joueurClient = joueurClient;
+    }
+
+    public void setJoueurServeur(Joueur joueurServeur) {
+        this.joueurServeur = joueurServeur;
+    }
+
+    /////////////////////////////////////////////////Marche pour un seul spectateur//////////////////////////
+//    @Override
+//    public void run() {
+//        try {
+//
+//            s_service_spectateur= Serveur.initialisationSpectateur();
+//
+//            sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
+//
+//            connected = true;
+//            System.out.println("Le spectateur est connecté");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void run() {
-        try {
+            try {
 
-            s_service_spectateur= Serveur.initialisationSpectateur();
+                Socket spectateur = Serveur.initialisationSpectateur();
+                System.out.println("Connexion nouveau spectateur");
+                Thread t = new Thread(new SpectateurProcessor(spectateur,morpion,joueurServeur,joueurClient));
+                t.start();
+                Thread.sleep(10);
 
-            sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
-
-            connected = true;
-            System.out.println("Le spectateur est connecté");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
     }
 
     public void setS_service_spectateur(Socket s_service_spectateur) {
