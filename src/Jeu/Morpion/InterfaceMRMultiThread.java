@@ -56,7 +56,7 @@ public class InterfaceMRMultiThread {
 
 
             while(morpion.peutContinuerPartie()) {
-                jouerTour(morpion);
+                jouerTour(morpion,joueurClient);
                 //On envoie un message puis on attend une réponse
                 pushCoup(joueurClient, socketSortie);
                 //test
@@ -71,10 +71,10 @@ public class InterfaceMRMultiThread {
         }
     }
 
-    private static void jouerTour(Morpion morpion) {
+    private static void jouerTour(Morpion morpion,Joueur joueur) {
         System.out.println(morpion);
         morpion.incrementerNbTour();
-        morpion.jouer(0);
+        morpion.jouer(joueur);
         morpion.incrementerNbTour();
         System.out.println(morpion);
     }
@@ -166,7 +166,7 @@ public class InterfaceMRMultiThread {
 
                     pushEtatPartieAuSpec(morpion, threadSpectateur);
                 }
-                jouerTour(morpion);
+                jouerTour(morpion,joueurServeur);
 
                 pushCoup(joueurServeur, sortieServJoueur);
                 joueurServeur.setcTonTour(true);

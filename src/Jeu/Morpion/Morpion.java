@@ -25,14 +25,13 @@ public class Morpion {
         nbTour++;
     }
 
-    public void jouer(int idJoueur){
+    public void jouer(Joueur joueur){
         if (peutContinuerPartie()) {
 
-            Joueur joueur = listeDesJoueurs.get(idJoueur);
             do {
                 System.out.println("C'est a toi de jouer \n");
                 joueur.setPositionJ(saisirEntier() - 1);
-            } while (!estCoupValide(idJoueur));
+            } while (!estCoupValide(joueur));
             grilleDuMorpion[joueur.getPositionJ()] = joueur.getPiont();
         }
 
@@ -41,8 +40,7 @@ public class Morpion {
         grilleDuMorpion[coup] = piont;
     }
 
-    public boolean estCoupValide(int idJoueur){
-        Joueur joueur = listeDesJoueurs.get(idJoueur);
+    public boolean estCoupValide(Joueur joueur){
 
         if (joueur.getPositionJ() < 0 || joueur.getPositionJ()>8) {
             System.out.println("mauvaise case");
