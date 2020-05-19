@@ -34,16 +34,20 @@ public class SpectateurProcessor implements Runnable {
     @Override
     public void run() {
         try {
+            boolean serveurLu = false;
+            boolean clientLu = false;
             while (morpion.peutContinuerPartie()) {
                 Thread.sleep(100);
-                if (joueurClient.iscTonTour()) {
+                if (joueurClient.iscTonTour() && !clientLu) {
+                    clientLu = true;
+                    serveurLu = false;
                     System.out.println("On est dans le spectateur "+joueurClient.iscTonTour());
-                    joueurClient.setcTonTour(false);
                     InterfaceMRMultiThread.pushCoup(joueurClient, sortieServSpec);
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }
-                else if( joueurServeur.iscTonTour()) {
-                    joueurServeur.setcTonTour(false);
+                else if( joueurServeur.iscTonTour() && !serveurLu) {
+                    clientLu = false;
+                    serveurLu = true;
                     InterfaceMRMultiThread.pushCoup(joueurServeur, sortieServSpec);
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }

@@ -154,11 +154,13 @@ public class InterfaceMRMultiThread {
 
             while (morpion.peutContinuerPartie()){
                 pullCoup(joueurClient,morpion,entreeServJoueur);
+                joueurServeur.setcTonTour(false);
                 joueurClient.setcTonTour(true);
                 System.out.println("On est dans le serveur "+joueurClient.iscTonTour());
 
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
+                joueurClient.setcTonTour(false);
                 joueurServeur.setcTonTour(true);
 
             }
