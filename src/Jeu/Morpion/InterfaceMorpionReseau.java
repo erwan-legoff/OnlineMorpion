@@ -17,7 +17,7 @@ public class InterfaceMorpionReseau {
 //        listeJoueurs.add(adversaire);
 //        Morpion morpion = new Morpion(listeJoueurs);
 //
-//        // TODO: 12/03/20 si les deux joueurs ont le meme nom ou pion on demande de nouveau au client de rentrer son pion ou son nom
+//
 //        saisirInfo(saisieJoueur, j1);
 //        System.out.println("Entrer votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
 //        Scanner choix = new Scanner(System.in);

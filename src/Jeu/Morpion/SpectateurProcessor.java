@@ -42,13 +42,13 @@ public class SpectateurProcessor implements Runnable {
                     clientLu = true;
                     serveurLu = false;
                     System.out.println("On est dans le spectateur "+joueurClient.iscTonTour());
-                    InterfaceMRMultiThread.pushCoup(joueurClient, sortieServSpec);
+                    InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }
                 else if( joueurServeur.iscTonTour() && !serveurLu) {
                     clientLu = false;
                     serveurLu = true;
-                    InterfaceMRMultiThread.pushCoup(joueurServeur, sortieServSpec);
+                    InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }
             }

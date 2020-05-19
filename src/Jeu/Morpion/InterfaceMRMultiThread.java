@@ -19,7 +19,7 @@ public class InterfaceMRMultiThread {
         listeJoueurs.add(JoueurServeur);
         Morpion morpion = new Morpion(listeJoueurs);
 
-        // TODO: 12/03/20 si les deux joueurs ont le meme nom ou pion on demande de nouveau au client de rentrer son pion ou son nom
+
 
         System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
         Scanner choix = new Scanner(System.in);
@@ -95,7 +95,8 @@ public class InterfaceMRMultiThread {
 
             while(true) {
                 System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
-                pullCoup(joueurClient, morpion, socketEntree);
+//                pullCoup(joueurClient, morpion, socketEntree);
+                pullGrille(morpion,socketEntree);
                 morpion.incrementerNbTour();
 
                 if (Client.pull(socketEntree).equals("FIN"))
@@ -103,7 +104,8 @@ public class InterfaceMRMultiThread {
                 System.out.println(morpion);
 
                 System.out.println("attente du coup de " + joueurServeur.getNomJ() + "...");
-                pullCoup(joueurServeur, morpion, socketEntree);
+//                pullCoup(joueurServeur, morpion, socketEntree);
+                pullGrille(morpion,socketEntree);
                 morpion.incrementerNbTour();
 
                 if (Client.pull(socketEntree).equals("FIN"))

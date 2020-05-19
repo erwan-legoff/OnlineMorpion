@@ -51,7 +51,7 @@ public class ThreadSpectateur extends Thread {
 
             try {
                 ServerSocket s_ecoute = new ServerSocket(2001);
-                while (true) {
+                while (morpion.peutContinuerPartie()) {
                     Socket spectateur = s_ecoute.accept();
                     System.out.println("Connexion nouveau spectateur");
                     Thread t = new Thread(new SpectateurProcessor(spectateur, morpion, joueurServeur, joueurClient));

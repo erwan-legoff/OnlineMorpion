@@ -49,7 +49,6 @@ public class Joueur {
     }
 
     public void setPion(String piont) {
-        // TODO: 12/03/20 Penser au cas ou les joueurs on le meme piont pas trop important
         if (!piont.equals("") && !piont.equals(" ") && piont.length() == 1)
             this.piont = piont;
     }
