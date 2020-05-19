@@ -5,6 +5,7 @@ import Reseau.Serveur;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ThreadSpectateur extends Thread {
@@ -47,13 +48,16 @@ public class ThreadSpectateur extends Thread {
     @Override
     public void run() {
 
-            try {
 
-                Socket spectateur = Serveur.initialisationSpectateur();
-                System.out.println("Connexion nouveau spectateur");
-                Thread t = new Thread(new SpectateurProcessor(spectateur, morpion, joueurServeur, joueurClient));
-                t.start();
-                Thread.sleep(10);
+            try {
+                ServerSocket s_ecoute = new ServerSocket(2001);
+                while (true) {
+                    Socket spectateur = s_ecoute.accept();
+                    System.out.println("Connexion nouveau spectateur");
+                    Thread t = new Thread(new SpectateurProcessor(spectateur, morpion, joueurServeur, joueurClient));
+                    t.start();
+                    Thread.sleep(10);
+                }
 
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
