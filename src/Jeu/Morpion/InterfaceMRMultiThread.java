@@ -95,23 +95,13 @@ public class InterfaceMRMultiThread {
 
 
             while(morpion.peutContinuerPartie()) {
-                System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
-//                pullCoup(joueurClient, morpion, socketEntree);
-                pullGrille(morpion,socketEntree);
-                morpion.incrementerNbTour();
-
-                if (Client.pull(socketEntree).equals("FIN"))
+                String message = Client.pull(socketEntree);
+                if (message.equals("FIN"))
                     break;
+                remplirGrille(morpion,message);
+                morpion.incrementerNbTour();
                 System.out.println(morpion);
 
-                System.out.println("attente du coup de " + joueurServeur.getNomJ() + "...");
-//                pullCoup(joueurServeur, morpion, socketEntree);
-                pullGrille(morpion,socketEntree);
-                morpion.incrementerNbTour();
-
-                if (Client.pull(socketEntree).equals("FIN"))
-                    break;
-                System.out.println(morpion);
             }
             Client.pull(socketEntree);
             System.out.println("partie terminée");
@@ -184,8 +174,6 @@ public class InterfaceMRMultiThread {
     public static void pushEtatPartieAuSpec(Morpion morpion, PrintStream sortieServSpec) {
         if (!morpion.peutContinuerPartie())
             Client.push("FIN", sortieServSpec);
-        else
-            Client.push("CONTINUE", sortieServSpec);
     }
 
 
@@ -200,13 +188,17 @@ public class InterfaceMRMultiThread {
         try {
             String grille = Client.pull(entreeSpec);
             for (int i = 0; i < 9; i++) {
-                System.out.println("La valeur de grille est "+grille.charAt(i));
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+    private static void remplirGrille(Morpion morpion,String grille ){
+            for (int i = 0; i < grille.length(); i++) {
+                morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
+            }
     }
     public static void pushInfoJoueurAuSpect(Joueur joueurServeur, Joueur joueurClient, PrintStream sortieServSpec) {
         pushInfoJoueur(joueurServeur, sortieServSpec);
