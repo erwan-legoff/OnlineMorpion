@@ -79,6 +79,7 @@ public class InterfaceMRMultiThread {
         System.out.println(morpion);
     }
 
+    // TODO: 19/05/2020  le thread spectateur ne ferme pas correctement le spectateur 
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on essaye de se connecter a un serveur local
         try {
@@ -122,6 +123,7 @@ public class InterfaceMRMultiThread {
         }
     }
 
+    // TODO: 19/05/2020 erreur quand le serveur gagne le client n'a pas le dernier coup 
     public static void morpionCoteServeur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
         ///////////////////////////////////////////////////////Partie serveur\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Sinon on lance le serveur

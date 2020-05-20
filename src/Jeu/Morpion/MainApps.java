@@ -13,24 +13,28 @@ public class MainApps {
         listeJoueurs.add(JoueurClient);
         listeJoueurs.add(JoueurServeur);
         Morpion morpion = new Morpion(listeJoueurs);
+        boolean continuerAjouer = true;
 
-
-        System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
-        Scanner choix = new Scanner(System.in);
-        switch (choix.nextLine()){
-            case "1":
-                InterfaceMRMultiThread.morpionCoteClient(JoueurServeur,JoueurClient, morpion);
-                break;
-            case "2":
-                InterfaceMRMultiThread.morpionCoteSpectateur(JoueurServeur,JoueurClient, morpion);
-                break;
-            case "3":
-                if(morpion.getNbTour()<=0) {
-                    InterfaceMRMultiThread.morpionCoteServeur(JoueurServeur,JoueurClient, morpion);
-                }
-                break;
-            default:
-                System.out.println("Retape ton choix");
+        while (continuerAjouer) {
+            System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger\n4=Quitter");
+            Scanner choix = new Scanner(System.in);
+            switch (choix.nextLine()) {
+                case "1":
+                    InterfaceMRMultiThread.morpionCoteClient(JoueurServeur, JoueurClient, morpion);
+                    break;
+                case "2":
+                    InterfaceMRMultiThread.morpionCoteSpectateur(JoueurServeur, JoueurClient, morpion);
+                    break;
+                case "3":
+                    if (morpion.getNbTour() <= 0) {
+                        InterfaceMRMultiThread.morpionCoteServeur(JoueurServeur, JoueurClient, morpion);
+                    }
+                case "4":
+                    continuerAjouer = false;
+                    break;
+                default:
+                    System.out.println("Retape ton choix");
+            }
         }
     }
 }
