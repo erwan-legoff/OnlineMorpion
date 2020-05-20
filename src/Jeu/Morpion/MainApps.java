@@ -10,12 +10,12 @@ public class MainApps {
         ArrayList<Joueur> listeJoueurs = new ArrayList<Joueur>();
         Joueur JoueurClient = new Joueur("Client","pouet","X");
         Joueur JoueurServeur = new Joueur("Serveur","pouette","O");
-        listeJoueurs.add(JoueurClient);
-        listeJoueurs.add(JoueurServeur);
-        Morpion morpion = new Morpion(listeJoueurs);
         boolean continuerAjouer = true;
 
         while (continuerAjouer) {
+            listeJoueurs.add(JoueurClient);
+            listeJoueurs.add(JoueurServeur);
+            Morpion morpion = new Morpion(listeJoueurs);
             System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger\n4=Quitter");
             Scanner choix = new Scanner(System.in);
             switch (choix.nextLine()) {

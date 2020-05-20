@@ -129,10 +129,7 @@ public class InterfaceMRMultiThread {
             DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
             PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
 
-            Socket socketSpectateur = null;
-            PrintStream sortieServSpec = null;
-            threadSpectateur.setS_service_spectateur(socketSpectateur);
-            threadSpectateur.setSortieServSpec(sortieServSpec);
+
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
             while (joueurClient.getPiont().equals(joueurServeur.getPiont())) {
@@ -158,7 +155,7 @@ public class InterfaceMRMultiThread {
 
             }
             socketClient.close();
-            threadSpectateur.getS_service_spectateur().close();
+            threadSpectateur.interrupt();
 
         } catch (IOException e) {
             e.printStackTrace();
