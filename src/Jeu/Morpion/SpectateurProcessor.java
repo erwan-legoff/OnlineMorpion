@@ -52,7 +52,6 @@ public class SpectateurProcessor implements Runnable {
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }
             }
-
             Client.push("1",sortieServSpec);
             socketSpectateur.close();
         } catch (IOException | InterruptedException e) {

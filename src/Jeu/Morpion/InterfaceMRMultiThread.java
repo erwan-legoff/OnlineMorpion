@@ -79,7 +79,7 @@ public class InterfaceMRMultiThread {
         System.out.println(morpion);
     }
 
-    // TODO: 19/05/2020  le thread spectateur ne ferme pas correctement le spectateur 
+    // TODO: 19/05/2020  le thread spectateur ne ferme pas correctement le spectateur quand le client gagne
     public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on essaye de se connecter a un serveur local
         try {
@@ -94,7 +94,7 @@ public class InterfaceMRMultiThread {
             System.out.println("vous êtes au tour n°"+morpion.getNbTour());
 
 
-            while(true) {
+            while(morpion.peutContinuerPartie()) {
                 System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
 //                pullCoup(joueurClient, morpion, socketEntree);
                 pullGrille(morpion,socketEntree);
@@ -114,7 +114,6 @@ public class InterfaceMRMultiThread {
                 System.out.println(morpion);
             }
             Client.pull(socketEntree);
-
             System.out.println("partie terminée");
             morpion.afficherGagnant();
             socket.close();
@@ -168,7 +167,6 @@ public class InterfaceMRMultiThread {
                 joueurServeur.setcTonTour(true);
 
             }
-            Client.push("1",threadSpectateur.getSortieServSpec());
             socketClient.close();
             threadSpectateur.getS_service_spectateur().close();
 
@@ -202,6 +200,7 @@ public class InterfaceMRMultiThread {
         try {
             String grille = Client.pull(entreeSpec);
             for (int i = 0; i < 9; i++) {
+                System.out.println("La valeur de grille est "+grille.charAt(i));
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
             }
         } catch (IOException e) {
