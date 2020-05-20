@@ -175,7 +175,7 @@ public class InterfaceMRMultiThread {
         if (!morpion.peutContinuerPartie())
             Client.push("FIN", sortieServSpec);
     }
-
+//test
 
     public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
         StringBuilder aEnvoyer = new StringBuilder();
