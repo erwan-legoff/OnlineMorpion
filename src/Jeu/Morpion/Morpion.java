@@ -65,7 +65,7 @@ public class Morpion {
         }
     }
 
-    public Joueur AQuiLeTour(){
+    public Joueur aQuiLeTour(){
         for (Joueur joueur: listeDesJoueurs
              ) {
             if (joueur.doitJouer())

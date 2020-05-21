@@ -85,6 +85,8 @@ public class InterfaceMRMultiThread {
                 String message = Client.pull(socketEntree);
                 if (message.equals("FIN"))//permet à tout moment d'arrêter la partie à partir de l'impulsion du serveur
                     break;
+
+
                 remplirGrille(morpion,message);//on remplit la grille totalement à chaque fois
                 morpion.incrementerNbTour();
                 System.out.println(morpion);
@@ -157,24 +159,7 @@ public class InterfaceMRMultiThread {
         System.out.println(morpion);
     }
 
-    public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
-        StringBuilder aEnvoyer = new StringBuilder();
-        for (int i = 0; i < 9 ; i++) {
-            aEnvoyer.append(morpion.getCaseGrilleDuMorpion(i));
-        }
-        Client.push(aEnvoyer.toString(),sortieServSpec);
-    }
-    private static void pullGrille(Morpion morpion,DataInputStream entreeSpec ){
-        try {
-            String grille = Client.pull(entreeSpec);
-            for (int i = 0; i < 9; i++) {
-                morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
     private static void remplirGrille(Morpion morpion,String grille ){
             for (int i = 0; i < grille.length(); i++) {
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
@@ -185,11 +170,27 @@ public class InterfaceMRMultiThread {
         pushInfoJoueur(joueurClient, sortieServSpec);
     }
 
+    private static void pullGrille(Morpion morpion,DataInputStream entreeSpec ){
+        try {
+            String grille = Client.pull(entreeSpec);
+            for (int i = 0; i < 9; i++) {
+                morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void pullCoup(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
         adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
-        //Puis on met a jour le morpion
-        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
 
+        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
+    }
+    public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
+        StringBuilder aEnvoyer = new StringBuilder();
+        for (int i = 0; i < 9 ; i++) {
+            aEnvoyer.append(morpion.getCaseGrilleDuMorpion(i));
+        }
+        Client.push(aEnvoyer.toString(),sortieServSpec);
     }
 
     public static void pushCoup(Joueur j, PrintStream socketSortie) {

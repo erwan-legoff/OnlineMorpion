@@ -34,6 +34,9 @@ public class Client {
 
 
 
+
+
+
     //Ceci est un vestige de nos anciens tests
     public static String communicationServeur(String upload, DataInputStream entree, PrintStream sortie) throws IOException {
 
