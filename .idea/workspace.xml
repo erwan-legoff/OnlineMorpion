@@ -7,12 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reseau/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reseau/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Serveur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590056186382</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Nettoyage et ajout de toDo">
+      <created>1590057985573</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1590057985573</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +348,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MAJ Spec" />
     <MESSAGE value="MAJ Spec v2" />
     <MESSAGE value="Retour En arriere" />
     <MESSAGE value="le joueur n'a plus le choix de sont pion" />
@@ -371,7 +372,8 @@
     <MESSAGE value="ça marche mutli spect" />
     <MESSAGE value="changement des commentaires..." />
     <MESSAGE value="ChangementNomClasse" />
-    <option name="LAST_COMMIT_MESSAGE" value="ChangementNomClasse" />
+    <MESSAGE value="Nettoyage et ajout de toDo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nettoyage et ajout de toDo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
@@ -391,12 +393,12 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590056024759" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1590056185842">
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1590057985053">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
     <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877472930" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1590056185842" />
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1590057985053" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -445,12 +447,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878147025" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1590056187961">
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1590057987434">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877475380" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1590056187961" />
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1590057987434" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589791659360">
       <screen x="0" y="0" width="1920" height="1040" />

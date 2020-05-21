@@ -8,7 +8,7 @@ public class Morpion {
     private final ArrayList<Joueur> listeDesJoueurs;
 
 
-    private String[] grilleDuMorpion;
+    private final String[] grilleDuMorpion;
     private int nbTour;
 
     private static final int[][] casGagnants = new int[][] {{ 0, 1, 2 }, { 3, 4, 5 },{ 6, 7, 8 }, { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 }, { 0, 4, 8 }, { 2, 4, 6 } };
@@ -84,7 +84,7 @@ public class Morpion {
     public void setNbTour(int nbTour) {
         this.nbTour = nbTour;
     }
-
+    //TODO : peutContinuerPartie ne doit pas afficher...
     public boolean peutContinuerPartie(){
         boolean partieGagnee = partieGagnee();
         if (!partieGagnee && nbTour<9)
