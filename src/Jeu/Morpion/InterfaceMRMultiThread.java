@@ -104,12 +104,12 @@ public class InterfaceMRMultiThread {
         try {
             saisirInfo(joueurServeur);
             Socket socketClient = Serveur.initialisationServeur();
-            ThreadSpectateur threadSpectateur = new ThreadSpectateur();
-            threadSpectateur.setMorpion(morpion);
+            ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur = new ThreadServeurEcouteSpectateur();
+            threadServeurEcouteSpectateur.setMorpion(morpion);
 
-            threadSpectateur.setJoueurClient(joueurClient);
-            threadSpectateur.setJoueurServeur(joueurServeur);
-            threadSpectateur.start();
+            threadServeurEcouteSpectateur.setJoueurClient(joueurClient);
+            threadServeurEcouteSpectateur.setJoueurServeur(joueurServeur);
+            threadServeurEcouteSpectateur.start();
 
             DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
             PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
@@ -128,7 +128,7 @@ public class InterfaceMRMultiThread {
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurServeur.setcTonTour(false);
                 joueurClient.setcTonTour(true);
-                System.out.println("On est dans le serveur "+joueurClient.iscTonTour());
+                System.out.println("On est dans le serveur "+joueurClient.doitJouer());
 
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
@@ -137,7 +137,7 @@ public class InterfaceMRMultiThread {
 
             }
             socketClient.close();
-            threadSpectateur.interrupt();
+            threadServeurEcouteSpectateur.interrupt();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -227,11 +227,11 @@ public class InterfaceMRMultiThread {
         adversaire.setNomJoueur(infoAdversaire[0]);
         adversaire.setPion(infoAdversaire[1]);
     }
-    public static void pushEtatPartieAuSpec(Morpion morpion, ThreadSpectateur threadSpectateur) {
+    public static void pushEtatPartieAuSpec(Morpion morpion, ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur) {
         if (!morpion.peutContinuerPartie())
-            Client.push("FIN", threadSpectateur.getSortieServSpec());
+            Client.push("FIN", threadServeurEcouteSpectateur.getSortieServSpec());
         else
-            Client.push("CONTINUE", threadSpectateur.getSortieServSpec());
+            Client.push("CONTINUE", threadServeurEcouteSpectateur.getSortieServSpec());
     }
 
 }

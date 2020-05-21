@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Morpion {
     private final ArrayList<Joueur> listeDesJoueurs;
-    private boolean finDeLaPartie;
-    private Joueur leGagnant;
+
+
     private String[] grilleDuMorpion;
     private int nbTour;
 
@@ -15,8 +15,7 @@ public class Morpion {
 
     public Morpion(ArrayList<Joueur> listeDesJoueurs) {
         this.listeDesJoueurs = listeDesJoueurs;
-        finDeLaPartie = false;
-        leGagnant = null;
+
         grilleDuMorpion = new String[9];
         Arrays.fill(grilleDuMorpion, " ");
         nbTour = 0;
@@ -66,7 +65,22 @@ public class Morpion {
         }
     }
 
+    public Joueur AQuiLeTour(){
+        for (Joueur joueur: listeDesJoueurs
+             ) {
+            if (joueur.doitJouer())
+            {
+                return joueur;
+            }
+            else {
+                System.err.println("problème, ce n'est le tour de personne...");
+                return null;
+            }
 
+        }
+        System.err.println("il n'y a pas de joueur...");
+        return null;
+    }
     public void setNbTour(int nbTour) {
         this.nbTour = nbTour;
     }

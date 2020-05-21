@@ -7,9 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/SpectateurProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadSpectateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadServeurEcouteSpectateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reseau/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Serveur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -307,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589877473835</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="changement des commentaires...">
+      <created>1590055007285</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1590055007285</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +363,8 @@
     <MESSAGE value="multiThread marche avec 1 spectateur et un sleep dans le thread" />
     <MESSAGE value="test plusieur spectateur" />
     <MESSAGE value="ça marche mutli spect" />
-    <option name="LAST_COMMIT_MESSAGE" value="ça marche mutli spect" />
+    <MESSAGE value="changement des commentaires..." />
+    <option name="LAST_COMMIT_MESSAGE" value="changement des commentaires..." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
@@ -365,12 +380,16 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="679" y="195" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589877472930">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590056024759">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590056024759" />
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1590055006687">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
     <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877472930" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219683262" />
+    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1590055006687" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -419,12 +438,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878147025" />
-    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1589877475380">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1590055010016">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877475380" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219003924" />
+    <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1590055010016" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589791659360">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -441,5 +460,9 @@
     </state>
     <state x="690" y="275" key="extract.method.dialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589033473815" />
     <state x="364" y="495" key="extract.method.dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1589218449554" />
+    <state x="666" y="287" key="refactoring.ChangeSignatureDialog" timestamp="1590055730250">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="666" y="287" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590055730250" />
   </component>
 </project>

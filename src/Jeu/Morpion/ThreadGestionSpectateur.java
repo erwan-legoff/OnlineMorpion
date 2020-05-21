@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 
-public class SpectateurProcessor implements Runnable {
-    private Socket socketSpectateur;
+public class ThreadGestionSpectateur implements Runnable {
+    private final Socket socketSpectateur;
     private PrintStream sortieServSpec;
     private Morpion morpion;
-    private Joueur joueurClient;
-    private Joueur joueurServeur;
+    private final Joueur joueurClient;
+    private final Joueur joueurServeur;
 
 
-    public SpectateurProcessor(Socket socketSpectateur,Morpion morpion,Joueur joueurServeur,Joueur joueurClient) {
+    public ThreadGestionSpectateur(Socket socketSpectateur, Morpion morpion, Joueur joueurServeur, Joueur joueurClient) {
         this.morpion = morpion;
         this.joueurClient = joueurClient;
         this.joueurServeur = joueurServeur;
@@ -38,14 +38,14 @@ public class SpectateurProcessor implements Runnable {
             boolean clientLu = false;
             while (morpion.peutContinuerPartie()) {
                 Thread.sleep(100);
-                if (joueurClient.iscTonTour() && !clientLu) {
+                if (joueurClient.doitJouer() && !clientLu) {
                     clientLu = true;
                     serveurLu = false;
-                    System.out.println("On est dans le spectateur "+joueurClient.iscTonTour());
+                    System.out.println("On est dans le spectateur "+joueurClient.doitJouer());
                     InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
                     InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }
-                else if( joueurServeur.iscTonTour() && !serveurLu) {
+                else if( joueurServeur.doitJouer() && !serveurLu) {
                     clientLu = false;
                     serveurLu = true;
                     InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);

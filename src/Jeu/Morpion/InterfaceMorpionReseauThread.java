@@ -125,17 +125,17 @@ public class InterfaceMorpionReseauThread {
         //Sinon on lance le serveur
         try {
             saisirInfo(joueurServeur);
-            ThreadSpectateur threadSpectateur = new ThreadSpectateur();
+            ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur = new ThreadServeurEcouteSpectateur();
             Socket socketClient = Serveur.initialisationServeur();
 
             DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
             PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
-            threadSpectateur.start();
+            threadServeurEcouteSpectateur.start();
 
             Socket socketSpectateur = null;
             PrintStream sortieServSpec = null;
-            threadSpectateur.setS_service_spectateur(socketSpectateur);
-            threadSpectateur.setSortieServSpec(sortieServSpec);
+            threadServeurEcouteSpectateur.setS_service_spectateur(socketSpectateur);
+            threadServeurEcouteSpectateur.setSortieServSpec(sortieServSpec);
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
             while (joueurClient.getPiont().equals(joueurServeur.getPiont())) {
@@ -150,40 +150,40 @@ public class InterfaceMorpionReseauThread {
 
             while (morpion.peutContinuerPartie()){
                 pullCoup(joueurClient,morpion,entreeServJoueur);
-                if (threadSpectateur.isConnected()) {
+                if (threadServeurEcouteSpectateur.isConnected()) {
                     if (!packetJoueurPushed) {
-                        pushGrille(morpion,threadSpectateur.getSortieServSpec());
-                        pushInfoJoueurAuSpect(joueurServeur, joueurClient, threadSpectateur.getSortieServSpec());
-                        Client.push(String.valueOf(morpion.getNbTour()),threadSpectateur.getSortieServSpec());
+                        pushGrille(morpion, threadServeurEcouteSpectateur.getSortieServSpec());
+                        pushInfoJoueurAuSpect(joueurServeur, joueurClient, threadServeurEcouteSpectateur.getSortieServSpec());
+                        Client.push(String.valueOf(morpion.getNbTour()), threadServeurEcouteSpectateur.getSortieServSpec());
                     }
                     packetJoueurPushed = true;
-                    pushCoup(joueurClient, threadSpectateur.getSortieServSpec());
+                    pushCoup(joueurClient, threadServeurEcouteSpectateur.getSortieServSpec());
 
-                    pushEtatPartieAuSpec(morpion, threadSpectateur);
+                    pushEtatPartieAuSpec(morpion, threadServeurEcouteSpectateur);
                 }
                 jouerTour(morpion);
                 pushCoup(joueurServeur, sortieServJoueur);
-                if (threadSpectateur.isConnected() && packetJoueurPushed) {
-                    pushCoup(joueurServeur, threadSpectateur.getSortieServSpec());
+                if (threadServeurEcouteSpectateur.isConnected() && packetJoueurPushed) {
+                    pushCoup(joueurServeur, threadServeurEcouteSpectateur.getSortieServSpec());
 
-                    pushEtatPartieAuSpec(morpion, threadSpectateur);
+                    pushEtatPartieAuSpec(morpion, threadServeurEcouteSpectateur);
                 }
 
             }
-            Client.push("1",threadSpectateur.getSortieServSpec());
+            Client.push("1", threadServeurEcouteSpectateur.getSortieServSpec());
             socketClient.close();
-            threadSpectateur.getS_service_spectateur().close();
+            threadServeurEcouteSpectateur.getS_service_spectateur().close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void pushEtatPartieAuSpec(Morpion morpion, ThreadSpectateur threadSpectateur) {
+    private static void pushEtatPartieAuSpec(Morpion morpion, ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur) {
         if (!morpion.peutContinuerPartie())
-            Client.push("FIN", threadSpectateur.getSortieServSpec());
+            Client.push("FIN", threadServeurEcouteSpectateur.getSortieServSpec());
         else
-            Client.push("CONTINUE", threadSpectateur.getSortieServSpec());
+            Client.push("CONTINUE", threadServeurEcouteSpectateur.getSortieServSpec());
     }
 
     private static void pushGrille(Morpion morpion,PrintStream sortieServSpec){

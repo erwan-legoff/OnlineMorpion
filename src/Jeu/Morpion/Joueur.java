@@ -44,7 +44,7 @@ public class Joueur {
         this.cTonTour = cTonTour;
     }
 
-    public boolean iscTonTour() {
+    public boolean doitJouer() {
         return cTonTour;
     }
 
