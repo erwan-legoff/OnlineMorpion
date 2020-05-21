@@ -88,13 +88,13 @@ public class InterfaceMorpionReseauThread {
             pullGrille(morpion,socketEntree);
             pullInfoJoueur(joueurServeur,socketEntree);
             pullInfoJoueur(joueurClient,socketEntree);
-            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
+            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNom() + " et " + joueurClient.getNom());
             morpion.setNbTour(Integer.parseInt(Client.pull(socketEntree)));
             System.out.println("vous êtes au tour n°"+morpion.getNbTour());
 
 
             while(true) {
-                System.out.println("attente du coup de " + joueurClient.getNomJ() + "...");
+                System.out.println("attente du coup de " + joueurClient.getNom() + "...");
                 pullCoup(joueurClient, morpion, socketEntree);
                 morpion.incrementerNbTour();
 
@@ -102,7 +102,7 @@ public class InterfaceMorpionReseauThread {
                     break;
                 System.out.println(morpion);
 
-                System.out.println("attente du coup de " + joueurServeur.getNomJ() + "...");
+                System.out.println("attente du coup de " + joueurServeur.getNom() + "...");
                 pullCoup(joueurServeur, morpion, socketEntree);
                 morpion.incrementerNbTour();
 
@@ -138,7 +138,7 @@ public class InterfaceMorpionReseauThread {
             threadServeurEcouteSpectateur.setSortieServSpec(sortieServSpec);
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
-            while (joueurClient.getPiont().equals(joueurServeur.getPiont())) {
+            while (joueurClient.getPion().equals(joueurServeur.getPion())) {
                 System.out.println("Change de pion stp!");
                 saisirInfo(joueurServeur);
             }
@@ -212,7 +212,7 @@ public class InterfaceMorpionReseauThread {
     public static void pullCoup(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
         adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
         //Puis on met a jour le morpion
-        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
+        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPion());
 
     }
 
@@ -241,7 +241,7 @@ public class InterfaceMorpionReseauThread {
 
     public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
-        String pack = j1.getNomJ()+" "+j1.getPiont();
+        String pack = j1.getNom()+" "+j1.getPion();
         Client.push(pack,socketSortie);
     }
 

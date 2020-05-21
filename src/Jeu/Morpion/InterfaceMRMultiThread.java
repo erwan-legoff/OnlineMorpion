@@ -54,11 +54,11 @@ public class InterfaceMRMultiThread {
                 pullInfoJoueur(joueurServeur, socketEntree);// on met à jour le morpion avec les infos du serveur
 
             while(morpion.peutContinuerPartie()) {
-                System.out.println("A votre tour "+ joueurClient.getNomJ()  + "!");
+                System.out.println("A votre tour "+ joueurClient.getNom()  + "!");
                 jouerTour(morpion,joueurClient); //On joue et met à jour le morpion local (client)
 
                 pushCoup(joueurClient, socketSortie); //On envoie le coup du client
-                System.out.println("Au tour de "+ joueurServeur.getNomJ()  + "...");
+                System.out.println("Au tour de "+ joueurServeur.getNom()  + "...");
                 pullCoup(joueurServeur, morpion, socketEntree);//on reçoit le coup du serveur et on met à jour le morpion
             }
 
@@ -77,7 +77,7 @@ public class InterfaceMRMultiThread {
             pullGrille(morpion,socketEntree);
             pullInfoJoueur(joueurServeur,socketEntree);
             pullInfoJoueur(joueurClient,socketEntree);
-            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNomJ() + " et " + joueurClient.getNomJ());
+            System.out.println("Vous observez une partie se jouant entre " + joueurServeur.getNom() + " et " + joueurClient.getNom());
             morpion.setNbTour(Integer.parseInt(Client.pull(socketEntree)));
             System.out.println("vous êtes au tour n°"+morpion.getNbTour());
 
@@ -119,7 +119,7 @@ public class InterfaceMRMultiThread {
 
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
-            while (joueurClient.getPiont().equals(joueurServeur.getPiont())) {
+            while (joueurClient.getPion().equals(joueurServeur.getPion())) {
                 System.out.println("Change de pion stp!");
                 saisirInfo(joueurServeur);
             }
@@ -130,8 +130,8 @@ public class InterfaceMRMultiThread {
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurServeur.setcTonTour(false);
                 joueurClient.setcTonTour(true);
-                System.out.println("On est dans le serveur "+joueurClient.doitJouer());
 
+                //TODO : attention ce n'est techniquement pas à son tour quand on met que c'est à son tour
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
                 joueurClient.setcTonTour(false);
@@ -183,7 +183,7 @@ public class InterfaceMRMultiThread {
     public static void pullCoup(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
         adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
 
-        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
+        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPion());
     }
     public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
         StringBuilder aEnvoyer = new StringBuilder();
@@ -218,7 +218,7 @@ public class InterfaceMRMultiThread {
 
     public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
-        String pack = j1.getNomJ()+" "+j1.getPiont();
+        String pack = j1.getNom()+" "+j1.getPion();
         Client.push(pack,socketSortie);
     }
 

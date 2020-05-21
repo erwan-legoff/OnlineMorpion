@@ -8,7 +8,7 @@ public class Joueur {
     private int Score;
     private boolean gagner;
     private int positionJ;
-    private boolean cTonTour;//qui commence? WARNING
+    private boolean cTonTour;
 
     public Joueur(String nomJ, String ipDuJoueur, String piont) {
         this.nomJ = nomJ;
@@ -17,7 +17,7 @@ public class Joueur {
         cTonTour = false;
         gagner=false;
     }
-    public String getPiont() {
+    public String getPion() {
         return piont;
     }
 
@@ -53,7 +53,7 @@ public class Joueur {
             this.piont = piont;
     }
 
-    public String getNomJ() {
+    public String getNom() {
         return nomJ;
     }
 

@@ -127,7 +127,7 @@ public class InterfaceMorpionReseau {
         adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
         morpion.incrementerNbTour();
         //Puis on met a jour le morpion
-        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPiont());
+        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPion());
 
     }
 
@@ -157,7 +157,7 @@ public class InterfaceMorpionReseau {
 
     public static void pushInfoJoueur(Joueur j1, PrintStream socketSortie) {
         //envoie des donnees joueur
-        String pack = j1.getNomJ()+" "+j1.getPiont();
+        String pack = j1.getNom()+" "+j1.getPion();
         Client.push(pack,socketSortie);
     }
 
