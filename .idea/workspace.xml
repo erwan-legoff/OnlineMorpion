@@ -9,6 +9,7 @@
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,8 +144,7 @@
       <workItem from="1589461834769" duration="13232000" />
       <workItem from="1589791661077" duration="1891000" />
       <workItem from="1589793742452" duration="103000" />
-      <workItem from="1589875504518" duration="4657000" />
-      <workItem from="1589977238317" duration="5143000" />
+      <workItem from="1589875504518" duration="3412000" />
     </task>
     <task id="LOCAL-00001" summary="MAJ Spec">
       <created>1588607528052</created>
@@ -307,61 +307,27 @@
       <option name="project" value="LOCAL" />
       <updated>1589877473835</updated>
     </task>
-    <task id="LOCAL-00024" summary="test bug si client se connecter pendant le tour du serv">
-      <created>1589878960023</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1589878960023</updated>
-    </task>
-    <task id="LOCAL-00025" summary="boucle pour pouvoir rejouer">
-      <created>1589978318762</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1589978318762</updated>
-    </task>
-    <task id="LOCAL-00026" summary="test correction bug quand le client gagne">
-      <created>1589980333363</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1589980333363</updated>
-    </task>
-    <task id="LOCAL-00027" summary="test correction bug quand le client gagneV2">
-      <created>1589981306744</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1589981306744</updated>
-    </task>
-    <task id="LOCAL-00028" summary="test correction bug quand le client gagneV2">
-      <created>1589981403068</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1589981403068</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="MAJ Spec" />
+    <MESSAGE value="MAJ Spec v2" />
     <MESSAGE value="Retour En arriere" />
     <MESSAGE value="le joueur n'a plus le choix de sont pion" />
     <MESSAGE value="deplacement du main dans un class main" />
@@ -383,11 +349,7 @@
     <MESSAGE value="multiThread marche avec 1 spectateur et un sleep dans le thread" />
     <MESSAGE value="test plusieur spectateur" />
     <MESSAGE value="ça marche mutli spect" />
-    <MESSAGE value="test bug si client se connecter pendant le tour du serv" />
-    <MESSAGE value="boucle pour pouvoir rejouer" />
-    <MESSAGE value="test correction bug quand le client gagne" />
-    <MESSAGE value="test correction bug quand le client gagneV2" />
-    <option name="LAST_COMMIT_MESSAGE" value="test correction bug quand le client gagneV2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ça marche mutli spect" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
@@ -403,11 +365,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="675" y="215" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589981401982">
+    <state x="679" y="195" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1589877472930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
-    <state x="675" y="215" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981401982" />
+    <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877472930" />
     <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219683262" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
@@ -415,32 +377,32 @@
     </state>
     <state x="795" y="331" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1588605593881" />
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604044932" />
-    <state width="914" height="198" key="GridCell.Tab.0.bottom" timestamp="1589981455251">
+    <state width="1877" height="199" key="GridCell.Tab.0.bottom" timestamp="1589878319850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
-    <state width="914" height="198" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981455251" />
+    <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="914" height="198" key="GridCell.Tab.0.center" timestamp="1589981455251">
+    <state width="1877" height="199" key="GridCell.Tab.0.center" timestamp="1589878319850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
-    <state width="914" height="198" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981455251" />
+    <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="914" height="198" key="GridCell.Tab.0.left" timestamp="1589981455251">
+    <state width="1877" height="199" key="GridCell.Tab.0.left" timestamp="1589878319850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
-    <state width="914" height="198" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981455251" />
+    <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454668" />
-    <state width="914" height="198" key="GridCell.Tab.0.right" timestamp="1589981455251">
+    <state width="1877" height="199" key="GridCell.Tab.0.right" timestamp="1589878319850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
-    <state width="914" height="198" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981455251" />
+    <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
     <state x="775" y="474" key="ReplaceDuplicatesPrompt" timestamp="1589218455739">
@@ -457,11 +419,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878147025" />
-    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1589981404869">
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1589877475380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
-    <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589981404869" />
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877475380" />
     <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589219003924" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589791659360">

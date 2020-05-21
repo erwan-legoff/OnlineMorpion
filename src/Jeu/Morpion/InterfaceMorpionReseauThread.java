@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InterfaceMorpionReseauThread {
+
     public static void main(String[] args) {
 
         ArrayList<Joueur> listeJoueurs = new ArrayList<Joueur>();
