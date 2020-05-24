@@ -29,9 +29,9 @@ public class Morpion {
 
             do {
                 System.out.println("C'est a toi de jouer "+ joueur.getNom());
-                joueur.setPositionJ(saisirEntier() - 1);
+                joueur.setPosition(saisirEntier() - 1);
             } while (!estCoupValide(joueur));
-            grilleDuMorpion[joueur.getPositionJ()] = joueur.getPion();
+            grilleDuMorpion[joueur.getPosition()] = joueur.getPion();
         }
 
     }
@@ -42,11 +42,11 @@ public class Morpion {
 
     public boolean estCoupValide(Joueur joueur){
 
-        if (joueur.getPositionJ() < 0 || joueur.getPositionJ()>8) {
+        if (joueur.getPosition() < 0 || joueur.getPosition()>8) {
             System.out.println("mauvaise case");
             return false;
         }
-        if (grilleDuMorpion[joueur.getPositionJ()] == " ") {
+        if (grilleDuMorpion[joueur.getPosition()] == " ") {
             return true;
         }
         else {
@@ -79,7 +79,7 @@ public class Morpion {
 
     protected void afficherGagnant() {
         for (Joueur joueur : listeDesJoueurs) {
-            if (joueur.isGagner())
+            if (joueur.isGagnant())
                 System.out.println("Le gagnant est : " + joueur);
         }
     }
@@ -103,7 +103,7 @@ public class Morpion {
             {
                 for (Joueur listeDesJoueur : listeDesJoueurs) {
                     if (listeDesJoueur.getPion()== piont ) {
-                        listeDesJoueur.setGagner();
+                        listeDesJoueur.setGagnant();
                     }
                 }
                 return true;

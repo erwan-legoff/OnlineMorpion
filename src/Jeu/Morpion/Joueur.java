@@ -1,67 +1,67 @@
 package Jeu.Morpion;
 
 public class Joueur {
-    private String nomJ;
+    private String nom;
 
-    private final String ipDuJoueur;
-    private String piont;
+    private final String ip;
+    private String pion;
 
-    private boolean gagner;
+    private boolean gagnant;
     private int positionJ;
-    private boolean cTonTour;
+    private boolean hasPlayed;
 
-    public Joueur(String nomJ, String ipDuJoueur, String piont) {
-        this.nomJ = nomJ;
-        this.ipDuJoueur = ipDuJoueur;
-        this.piont = piont;
-        cTonTour = false;
-        gagner=false;
+    public Joueur(String nom, String ip, String pion) {
+        this.nom = nom;
+        this.ip = ip;
+        this.pion = pion;
+        hasPlayed = false;
+        gagnant =false;
     }
     public String getPion() {
-        return piont;
+        return pion;
     }
 
-    void setGagner() {
-        this.gagner = true;
+    void setGagnant() {
+        this.gagnant = true;
     }
 
-    public boolean isGagner() {
-        return gagner;
+    public boolean isGagnant() {
+        return gagnant;
     }
 
 
-    public int getPositionJ(){
+    public int getPosition(){
         return positionJ;
     }
 
-    public void setPositionJ(int positionJ) {
+    public void setPosition(int positionJ) {
         this.positionJ = positionJ;
     }
 
-    public void setDoitJouer(boolean cTonTour) {
-        this.cTonTour = cTonTour;
+    public void setHasPlayed(boolean cTonTour) {
+        this.hasPlayed = cTonTour;
     }
 
-    public boolean getDoitJouer() {
-        return cTonTour;
+    public boolean getHasPlayed() {
+        return hasPlayed;
     }
 
     public void setPion(String piont) {
         if (!piont.equals("") && !piont.equals(" ") && piont.length() == 1)
-            this.piont = piont;
+            this.pion = piont;
     }
 
     public String getNom() {
-        return nomJ;
+        return nom;
     }
 
-    public void setNomJoueur(String nomJ) {
-        if(!nomJ.contains(" ")&& !nomJ.equals(""))
-            this.nomJ = nomJ;
+    public void setNom(String nom) {
+        if(!nom.contains(" ")&& !nom.equals(""))
+            this.nom = nom;
     }
 
     @Override
     public String toString() {
-        return  nomJ +" "+piont;
+        return  nom +" "+ pion;
     }
 }

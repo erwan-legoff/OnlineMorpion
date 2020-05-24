@@ -99,14 +99,14 @@ public class MorpionReseau {
 
             while (morpion.peutContinuerPartie()){
                 pullCoup(joueurClient,morpion,entreeServJoueur);
-                joueurServeur.setDoitJouer(false);
-                joueurClient.setDoitJouer(true);
+                joueurServeur.setHasPlayed(false);
+                joueurClient.setHasPlayed(true);
 
                 //TODO : attention ce n'est techniquement pas à son tour quand on met que c'est à son tour
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
-                joueurClient.setDoitJouer(false);
-                joueurServeur.setDoitJouer(true);
+                joueurClient.setHasPlayed(false);
+                joueurServeur.setHasPlayed(true);
 
             }
             socketClient.close();
@@ -152,9 +152,9 @@ public class MorpionReseau {
         }
     }
     public static void pullCoup(Joueur adversaire, Morpion morpion, DataInputStream socketEntree) throws IOException {
-        adversaire.setPositionJ(Integer.parseInt(Client.pull(socketEntree)));
+        adversaire.setPosition(Integer.parseInt(Client.pull(socketEntree)));
 
-        morpion.ajouterUnCoup(adversaire.getPositionJ(), adversaire.getPion());
+        morpion.ajouterUnCoup(adversaire.getPosition(), adversaire.getPion());
     }
     public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
         StringBuilder aEnvoyer = new StringBuilder();
@@ -165,7 +165,7 @@ public class MorpionReseau {
     }
 
     public static void pushCoup(Joueur j, PrintStream socketSortie) {
-        Client.push(String.valueOf(j.getPositionJ()), socketSortie);
+        Client.push(String.valueOf(j.getPosition()), socketSortie);
     }
 
 
@@ -178,7 +178,7 @@ public class MorpionReseau {
     public static void saisirNomJoueur(Scanner saisie, Joueur j) {
         System.out.print("Ton nom : \n");
         String nomJoueur = saisie.nextLine();
-        j.setNomJoueur(nomJoueur);
+        j.setNom(nomJoueur);
     }
 
     public static void saisirPion(Scanner saisie, Joueur j) {
@@ -196,7 +196,7 @@ public class MorpionReseau {
     public static void pullInfoJoueur(Joueur adversaire, DataInputStream entreeServ) throws IOException {
         String packRecu = Client.pull(entreeServ);
         String[]infoAdversaire = packRecu.split(" ");
-        adversaire.setNomJoueur(infoAdversaire[0]);
+        adversaire.setNom(infoAdversaire[0]);
         adversaire.setPion(infoAdversaire[1]);
     }
 
