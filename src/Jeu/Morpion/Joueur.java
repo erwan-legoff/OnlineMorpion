@@ -2,10 +2,10 @@ package Jeu.Morpion;
 
 public class Joueur {
     private String nomJ;
-    //Recuperer l'adresse ip
+
     private final String ipDuJoueur;
     private String piont;
-    private int Score;
+
     private boolean gagner;
     private int positionJ;
     private boolean cTonTour;
@@ -29,9 +29,7 @@ public class Joueur {
         return gagner;
     }
 
-    public String getIpDuJoueur() {
-        return ipDuJoueur;
-    }
+
     public int getPositionJ(){
         return positionJ;
     }
@@ -40,11 +38,11 @@ public class Joueur {
         this.positionJ = positionJ;
     }
 
-    public void setcTonTour(boolean cTonTour) {
+    public void setDoitJouer(boolean cTonTour) {
         this.cTonTour = cTonTour;
     }
 
-    public boolean doitJouer() {
+    public boolean getDoitJouer() {
         return cTonTour;
     }
 

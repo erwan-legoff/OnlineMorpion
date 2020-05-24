@@ -38,14 +38,14 @@ public class ThreadGestionSpectateur implements Runnable {
             boolean clientLu = false;
             while (morpion.peutContinuerPartie()) {
                 Thread.sleep(100);
-                if (joueurClient.doitJouer() && !clientLu) {
+                if (joueurClient.getDoitJouer() && !clientLu) {
                     clientLu = true;
                     serveurLu = false;
                     MorpionReseau.pushGrille(morpion,sortieServSpec);
                     MorpionReseau.pushEtatPartieAuSpectateur(morpion, sortieServSpec);
                 } //envoie la grille quand le client a joué
                 //TODO: doublon des deux fonctions, elles ne servent qu'à synchroniser finalement...
-                else if( joueurServeur.doitJouer() && !serveurLu) {
+                else if( joueurServeur.getDoitJouer() && !serveurLu) {
                     clientLu = false;
                     serveurLu = true;
 

@@ -5,7 +5,6 @@ import Reseau.Serveur;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MorpionReseau {
@@ -100,14 +99,14 @@ public class MorpionReseau {
 
             while (morpion.peutContinuerPartie()){
                 pullCoup(joueurClient,morpion,entreeServJoueur);
-                joueurServeur.setcTonTour(false);
-                joueurClient.setcTonTour(true);
+                joueurServeur.setDoitJouer(false);
+                joueurClient.setDoitJouer(true);
 
                 //TODO : attention ce n'est techniquement pas à son tour quand on met que c'est à son tour
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
-                joueurClient.setcTonTour(false);
-                joueurServeur.setcTonTour(true);
+                joueurClient.setDoitJouer(false);
+                joueurServeur.setDoitJouer(true);
 
             }
             socketClient.close();
