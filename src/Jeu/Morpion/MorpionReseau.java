@@ -159,7 +159,7 @@ public class MorpionReseau {
     public static void pushGrille(Morpion morpion,PrintStream sortieServSpec){
         StringBuilder aEnvoyer = new StringBuilder();
         for (int i = 0; i < 9 ; i++) {
-            aEnvoyer.append(morpion.getCaseGrilleDuMorpion(i));
+            aEnvoyer.append(morpion.getCaseGrilleMorpion(i));
         }
         Client.push(aEnvoyer.toString(),sortieServSpec);
     }

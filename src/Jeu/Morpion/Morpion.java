@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Morpion {
-    private final ArrayList<Joueur> listeDesJoueurs;
+    private final ArrayList<Joueur> listeJoueurs;
 
 
-    private final String[] grilleDuMorpion;
+    private final String[] grilleMorpion;
     private int nbTour;
 
     private static final int[][] casGagnants = new int[][] {{ 0, 1, 2 }, { 3, 4, 5 },{ 6, 7, 8 }, { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 }, { 0, 4, 8 }, { 2, 4, 6 } };
 
-    public Morpion(ArrayList<Joueur> listeDesJoueurs) {
-        this.listeDesJoueurs = listeDesJoueurs;
+    public Morpion(ArrayList<Joueur> listeJoueurs) {
+        this.listeJoueurs = listeJoueurs;
 
-        grilleDuMorpion = new String[9];
-        Arrays.fill(grilleDuMorpion, " ");
+        grilleMorpion = new String[9];
+        Arrays.fill(grilleMorpion, " ");
         nbTour = 0;
     }
     public void incrementerNbTour(){
@@ -31,13 +31,13 @@ public class Morpion {
                 System.out.println("C'est a toi de jouer "+ joueur.getNom());
                 joueur.setPosition(saisirEntier() - 1);
             } while (!estCoupValide(joueur));
-            grilleDuMorpion[joueur.getPosition()] = joueur.getPion();
+            grilleMorpion[joueur.getPosition()] = joueur.getPion();
         }
 
     }
 
     public void ajouterUnCoup(int coup, String pion){
-        grilleDuMorpion[coup] = pion;
+        grilleMorpion[coup] = pion;
     }
 
     public boolean estCoupValide(Joueur joueur){
@@ -46,7 +46,7 @@ public class Morpion {
             System.out.println("mauvaise case");
             return false;
         }
-        if (grilleDuMorpion[joueur.getPosition()] == " ") {
+        if (grilleMorpion[joueur.getPosition()] == " ") {
             return true;
         }
         else {
@@ -78,7 +78,7 @@ public class Morpion {
     }
 
     protected void afficherGagnant() {
-        for (Joueur joueur : listeDesJoueurs) {
+        for (Joueur joueur : listeJoueurs) {
             if (joueur.isGagnant())
                 System.out.println("Le gagnant est : " + joueur);
         }
@@ -91,17 +91,17 @@ public class Morpion {
         int cptDePoint;// on init un cpt de point
         for (int i = 0; i < casGagnants.length; i++) { //on vien parcourir le tableau des cas gagnants
             cptDePoint = 0;
-            piont = grilleDuMorpion[casGagnants[i][0]];//On initialise le piont à comparer
+            piont = grilleMorpion[casGagnants[i][0]];//On initialise le piont à comparer
             if (piont != " "){
                 for (int j = 0; j < casGagnants[0].length ; j++) { //on parcourt les 3 positions des pionts gagnants
-                   if(grilleDuMorpion[casGagnants[i][j]] == piont){ // on compte le nombre de fois que le joueur est positionné
+                   if(grilleMorpion[casGagnants[i][j]] == piont){ // on compte le nombre de fois que le joueur est positionné
                        cptDePoint ++;                              // comme indiqué
                    }
                 }
             }
             if (cptDePoint >= 3) // s'il est positionné 3 fois comme un cas gagnant alors C GAGNE
             {
-                for (Joueur listeDesJoueur : listeDesJoueurs) {
+                for (Joueur listeDesJoueur : listeJoueurs) {
                     if (listeDesJoueur.getPion()== piont ) {
                         listeDesJoueur.setGagnant();
                     }
@@ -130,17 +130,17 @@ public class Morpion {
         return nbTour;
     }
 
-    public String getCaseGrilleDuMorpion(int i) {
-        return grilleDuMorpion[i];
+    public String getCaseGrilleMorpion(int i) {
+        return grilleMorpion[i];
     }
 
 
     @Override
     public String toString() {
-        StringBuilder affichage = new StringBuilder("Tour n°" + nbTour + "\n Ton profil : " + listeDesJoueurs.get(0) + "\n Adversaire : " + listeDesJoueurs.get(1) + "\n");
+        StringBuilder affichage = new StringBuilder("Tour n°" + nbTour + "\n Ton profil : " + listeJoueurs.get(0) + "\n Adversaire : " + listeJoueurs.get(1) + "\n");
         for (int i = 7; i > 0  ; i-=3) {
-            for (int j = 0; j < grilleDuMorpion.length/3 ; j++) {
-                affichage.append("|").append(grilleDuMorpion[i + j - 1]);
+            for (int j = 0; j < grilleMorpion.length/3 ; j++) {
+                affichage.append("|").append(grilleMorpion[i + j - 1]);
             }
             affichage.append("|\n");
         }
