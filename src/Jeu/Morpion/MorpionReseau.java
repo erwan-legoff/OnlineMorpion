@@ -200,11 +200,6 @@ public class MorpionReseau {
         adversaire.setNomJoueur(infoAdversaire[0]);
         adversaire.setPion(infoAdversaire[1]);
     }
-    public static void pushEtatPartieAuSpectateur(Morpion morpion, ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur) {
-        if (!morpion.peutContinuerPartie())
-            Client.push("FIN", threadServeurEcouteSpectateur.getSortieServSpec());
-        else
-            Client.push("CONTINUE", threadServeurEcouteSpectateur.getSortieServSpec());
-    }
+
 
 }
