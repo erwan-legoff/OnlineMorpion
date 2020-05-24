@@ -1,17 +1,21 @@
 package InterfaceGraphique;
 
+import Jeu.Morpion.Morpion;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Panneau extends JPanel {
 
-    private int idJ;
+    private String pionJ;
     private int posX;
     private int posY;
     private boolean nouvPion;
     private boolean nouvPionAdversaire;
 
-    Panneau(){
+    private static String[] tableauMoprion;
+
+    public Panneau(){
         nouvPion=false;
         nouvPionAdversaire=false;
     }
@@ -25,19 +29,16 @@ public class Panneau extends JPanel {
                 g.drawString(String.valueOf(id), 10 + i * this.getWidth() / 3, 20 + j * this.getHeight() / 3);
             }
         }
-        if(nouvPion){
-            nouvPion=false;
-            g.drawString("X",posX,posY);
-        }
-        if(nouvPionAdversaire){
-            nouvPionAdversaire=false;
-            g.drawString("O",posX,posY);
-        }
-
+        //if(nouvPion){
+            //nouvPion=false;
+            g.drawString(pionJ,posX,posY);
+        System.out.println(pionJ);
+        //}
     }
 
-    public void afficherPion(int id){
-        this.idJ=id;
+    public void afficherPion(int id, String apparence){
+        pionJ=apparence;
+        //System.out.println(id + apparence);
         if(id==7) {
             this.posX = 100;
             this.posY = 100;
@@ -78,8 +79,19 @@ public class Panneau extends JPanel {
         this.repaint();
     }
 
+    public void actualiserGrille(Morpion morpion){
+        //tableauMoprion = morpion.getGrilleMorpion();
+        for (int i = 0; i < morpion.getGrilleMorpion().length; i++) {
+            tableauMoprion[i]=morpion.getCaseGrilleMorpion(i);
+        }
+
+        for(int i=0;i<tableauMoprion.length;i++){
+            this.afficherPion(i+1,"X");
+            //System.out.println(tableauMoprion[i]);
+        }
+    }
+/*
     public void afficherPionAdversaire(int id){
-        this.idJ=id;
         if(id==7) {
             this.posX = 100;
             this.posY = 100;
@@ -119,5 +131,7 @@ public class Panneau extends JPanel {
         this.nouvPionAdversaire=true;
         this.repaint();
     }
+
+ */
 
 }

@@ -1,5 +1,7 @@
 package Jeu.Morpion;
 
+import InterfaceGraphique.Interface;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,12 +26,19 @@ public class Morpion {
         nbTour++;
     }
 
+    public String[] getGrilleMorpion() {
+        return grilleMorpion;
+    }
+
     public void jouer(Joueur joueur){
         if (peutContinuerPartie()) {
 
             do {
                 System.out.println("C'est a toi de jouer "+ joueur.getNom());
-                joueur.setPosition(saisirEntier() - 1);
+                //joueur.setPosition(saisirEntier() - 1);
+                joueur.setPosition(Interface.getIdCoupJoueur() - 1);
+
+
             } while (!estCoupValide(joueur));
             grilleMorpion[joueur.getPosition()] = joueur.getPion();
         }

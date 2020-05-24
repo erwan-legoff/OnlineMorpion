@@ -1,5 +1,7 @@
 package Jeu.Morpion;
 
+import InterfaceGraphique.Interface;
+import InterfaceGraphique.Panneau;
 import Reseau.Client;
 import Reseau.Serveur;
 
@@ -128,6 +130,7 @@ public class MorpionReseau {
         morpion.jouer(joueur);
         morpion.incrementerNbTour();
         System.out.println(morpion);
+
     }
 
 

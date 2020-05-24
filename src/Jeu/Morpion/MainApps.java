@@ -1,11 +1,17 @@
 package Jeu.Morpion;
 
+import InterfaceGraphique.Interface;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class MainApps {
     public static void main(String[] args) {
+
+
+
 
         ArrayList<Joueur> listeJoueurs = new ArrayList<Joueur>();
         Joueur JoueurClient = new Joueur("Client","pouet","X");
@@ -15,6 +21,16 @@ public class MainApps {
             listeJoueurs.add(JoueurClient);
             listeJoueurs.add(JoueurServeur);
             Morpion morpion = new Morpion(listeJoueurs);
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    Interface frame = new Interface(morpion);
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
             System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger\n4=Quitter");
             Scanner choix = new Scanner(System.in);
             switch (choix.nextLine()) {

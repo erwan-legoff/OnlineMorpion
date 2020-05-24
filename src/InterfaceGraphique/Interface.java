@@ -1,16 +1,19 @@
 package InterfaceGraphique;
 
+import Jeu.Morpion.Morpion;
+
 import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Interface extends JFrame {
+
+    private static int idCoupJoueur;
 
     private JPanel contentPane;
 
@@ -18,7 +21,7 @@ public class Interface extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    Interface frame = new Interface();
+                    Interface frame = new Interface(null);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -27,7 +30,18 @@ public class Interface extends JFrame {
         });
     }
 
-    public Interface() {
+    public static void setIdCoupJoueur(int idC2) {
+        idCoupJoueur = idC2;
+    }
+
+    public static int getIdCoupJoueur() {
+        return idCoupJoueur;
+    }
+
+    private Morpion morpion;
+
+    public Interface(Morpion morpion) {
+        this.morpion=morpion;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 608, 608);
         this.setTitle("Morpion");
@@ -38,6 +52,7 @@ public class Interface extends JFrame {
         contentPane.setLayout(null);
 
         Panneau panneau = new Panneau();
+        panneau.actualiserGrille(morpion);
         this.setContentPane(panneau);
 
 
@@ -48,7 +63,7 @@ public class Interface extends JFrame {
 
         panneau.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-                System.out.println("X = " + e.getX() + " ; Y = " + e.getY());//temporaire
+                //System.out.println("X = " + e.getX() + " ; Y = " + e.getY());//temporaire
 
                 if (e.getY() < hauteur / 3) {
                     if (e.getX() < largeur / 3)
@@ -74,12 +89,16 @@ public class Interface extends JFrame {
                     if (e.getX() > largeur * 2 / 3)
                         id[0] = 3;
                 }
-                System.out.println(id[0]);
+                //System.out.println(id[0]);
+                Interface.setIdCoupJoueur(id[0]);
 
-                panneau.afficherPion(id[0]);
+                panneau.actualiserGrille(morpion);
+                //panneau.afficherPion(id[0],"X");
             }
 
         });
     }
+
+
 
 }
