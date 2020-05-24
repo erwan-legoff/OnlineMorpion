@@ -25,35 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/JeuMorpion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/MainChat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Serveur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Serveur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/MainClientServeur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/TestThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/JeuMorpion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/MorpionReseau.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/MainApps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/MainApps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reseau/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reseau/MainChat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testSocket/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testSocket/MainClientServeur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testSocket/Serveur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testSocket/TestThread.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,19 +84,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MainApps">
-    <configuration name="InterfaceMorpionReseau" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMorpionReseau" />
-      <module name="ProjetTutV2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Jeu.Morpion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InterfaceMorpionReseauThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMorpionReseauThread" />
       <module name="ProjetTutV2" />
@@ -150,6 +112,19 @@
     </configuration>
     <configuration name="MainApps" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.MainApps" />
+      <module name="ProjetTutV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Jeu.Morpion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MorpionReseau" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.MorpionReseau" />
       <module name="ProjetTutV2" />
       <extension name="coverage">
         <pattern>
@@ -193,7 +168,7 @@
       <workItem from="1589793742452" duration="103000" />
       <workItem from="1589875504518" duration="3412000" />
       <workItem from="1590326249603" duration="319000" />
-      <workItem from="1590326672511" duration="719000" />
+      <workItem from="1590326672511" duration="1131000" />
     </task>
     <task id="LOCAL-00001" summary="MAJ Spec">
       <created>1588607528052</created>
@@ -391,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590058593774</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Nettoyage total du code">
+      <created>1590327434431</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1590327434431</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +392,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="le joueur n'a plus le choix de sont pion" />
     <MESSAGE value="deplacement du main dans un class main" />
     <MESSAGE value="ajout d'une nouvelle interface&#10;fusion des push au spectateur" />
     <MESSAGE value="test thread 2.0(sans faire planter git)" />
@@ -435,7 +416,8 @@
     <MESSAGE value="Nettoyage et ajout de toDo" />
     <MESSAGE value="ajout todo : peutContinuerPartie ne doit rien afficher" />
     <MESSAGE value="ajout todo : attention au changement de tour, c'est pas terrible!" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout todo : attention au changement de tour, c'est pas terrible!" />
+    <MESSAGE value="Nettoyage total du code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nettoyage total du code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1589033256407">
@@ -451,15 +433,17 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="483" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604021814" />
-    <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590056024759">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1590327691832">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590327691832" />
     <state x="96" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1590056024759" />
-    <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1590058593200">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="526" y="85" width="1237" height="874" key="CommitChangelistDialog2" timestamp="1590327433713">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="218" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932937046" />
     <state x="679" y="195" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877472930" />
+    <state x="526" y="85" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1590327433713" />
     <state x="526" y="88" width="1237" height="874" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1590058593200" />
     <state x="905" y="294" key="CommitChangelistDialog2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608161612" />
     <state x="795" y="331" key="FileChooserDialogImpl" timestamp="1588605593881">
@@ -467,36 +451,36 @@
     </state>
     <state x="795" y="331" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1588605593881" />
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604044932" />
-    <state width="1877" height="162" key="GridCell.Tab.0.bottom" timestamp="1590326568055">
+    <state width="1877" height="161" key="GridCell.Tab.0.bottom" timestamp="1590327525526">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
-    <state width="1877" height="162" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
+    <state width="1877" height="161" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590327525526" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="1877" height="162" key="GridCell.Tab.0.center" timestamp="1590326568055">
+    <state width="1877" height="161" key="GridCell.Tab.0.center" timestamp="1590327525525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
-    <state width="1877" height="162" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
+    <state width="1877" height="161" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590327525525" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="1877" height="162" key="GridCell.Tab.0.left" timestamp="1590326568055">
+    <state width="1877" height="161" key="GridCell.Tab.0.left" timestamp="1590327525525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
-    <state width="1877" height="162" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
+    <state width="1877" height="161" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590327525525" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454668" />
-    <state width="1877" height="162" key="GridCell.Tab.0.right" timestamp="1590326568055">
+    <state width="1877" height="161" key="GridCell.Tab.0.right" timestamp="1590327525525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
-    <state width="1877" height="162" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
+    <state width="1877" height="161" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590327525525" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
     <state x="775" y="474" key="ReplaceDuplicatesPrompt" timestamp="1589218455739">
@@ -513,11 +497,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878147025" />
-    <state x="654" y="334" key="Vcs.Push.Dialog.v2" timestamp="1590058598206">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2" timestamp="1590327438545">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588932940844" />
     <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589877475380" />
+    <state x="654" y="322" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590327438545" />
     <state x="654" y="334" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1590058598206" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588608165705" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1589791659360">
@@ -525,10 +510,11 @@
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588978559704" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589791659360" />
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589462002051">
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590327390730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589462002051" />
+    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1590327390730" />
     <state x="769" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1080@0.0.1920.1080" timestamp="1589211646490" />
     <state x="364" y="495" key="extract.method.dialog" timestamp="1589218449554">
       <screen x="0" y="0" width="1920" height="1080" />

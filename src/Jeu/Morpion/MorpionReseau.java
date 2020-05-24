@@ -8,39 +8,11 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InterfaceMorpionReseau {
-
-    public static void main(String[] args) {
-
-        ArrayList<Joueur> listeJoueurs = new ArrayList<Joueur>();
-        Joueur JoueurClient = new Joueur("Client","pouet","X");
-        Joueur JoueurServeur = new Joueur("Serveur","pouette","O");
-        listeJoueurs.add(JoueurClient);
-        listeJoueurs.add(JoueurServeur);
-        Morpion morpion = new Morpion(listeJoueurs);
+public class MorpionReseau {
 
 
 
-        System.out.println("Entrez votre choix: \n1=Jouer\n2=Regarder\n3=Héberger");
-        Scanner choix = new Scanner(System.in);
-        switch (choix.nextLine()){
-            case "1":
-                morpionCoteClient(JoueurServeur,JoueurClient, morpion);
-                break;
-            case "2":
-                morpionCoteSpectateur(JoueurServeur,JoueurClient, morpion);
-                break;
-            case "3":
-                if(morpion.getNbTour()<=0) {
-                    morpionCoteServeur(JoueurServeur,JoueurClient, morpion);
-                }
-                break;
-            default:
-                System.out.println("Retape ton choix");
-        }
-    }
-
-    public static void morpionCoteClient(Joueur joueurServeur,Joueur joueurClient,  Morpion morpion) {
+    public static void morpionClient(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
         Socket socket;
         try {
                 saisirInfo(joueurClient); // on renseigne le nom et le piont de son joueur, en mettant à jour le morpion
@@ -69,7 +41,7 @@ public class InterfaceMorpionReseau {
     }
 
     // TODO: 19/05/2020  le thread spectateur ne ferme pas correctement le spectateur quand le client gagne
-    public static void morpionCoteSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
+    public static void morpionSpectateur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion){
         Socket socket; //on essaye de se connecter a un serveur local
         try {
             socket = Client.getSocket("localhost",2001);
@@ -101,7 +73,7 @@ public class InterfaceMorpionReseau {
     }
 
     // TODO: 19/05/2020 erreur quand le serveur gagne le client n'a pas le dernier coup 
-    public static void morpionCoteServeur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
+    public static void morpionServeur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
 
         try {
             saisirInfo(joueurServeur);
@@ -147,7 +119,7 @@ public class InterfaceMorpionReseau {
     }
 
 
-    public static void pushEtatPartieAuSpec(Morpion morpion, PrintStream sortieServSpec) {
+    public static void pushEtatPartieAuSpectateur(Morpion morpion, PrintStream sortieServSpec) {
         if (!morpion.peutContinuerPartie())
             Client.push("FIN", sortieServSpec);
     }
@@ -165,7 +137,7 @@ public class InterfaceMorpionReseau {
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
             }
     }
-    public static void pushInfoJoueurAuSpect(Joueur joueurServeur, Joueur joueurClient, PrintStream sortieServSpec) {
+    public static void pushInfoJoueurAuSpectateur(Joueur joueurServeur, Joueur joueurClient, PrintStream sortieServSpec) {
         pushInfoJoueur(joueurServeur, sortieServSpec);
         pushInfoJoueur(joueurClient, sortieServSpec);
     }
@@ -228,7 +200,7 @@ public class InterfaceMorpionReseau {
         adversaire.setNomJoueur(infoAdversaire[0]);
         adversaire.setPion(infoAdversaire[1]);
     }
-    public static void pushEtatPartieAuSpec(Morpion morpion, ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur) {
+    public static void pushEtatPartieAuSpectateur(Morpion morpion, ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur) {
         if (!morpion.peutContinuerPartie())
             Client.push("FIN", threadServeurEcouteSpectateur.getSortieServSpec());
         else

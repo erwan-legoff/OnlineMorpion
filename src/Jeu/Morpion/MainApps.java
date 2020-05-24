@@ -19,14 +19,14 @@ public class MainApps {
             Scanner choix = new Scanner(System.in);
             switch (choix.nextLine()) {
                 case "1":
-                    InterfaceMorpionReseau.morpionCoteClient(JoueurServeur, JoueurClient, morpion);
+                    MorpionReseau.morpionClient(JoueurServeur, JoueurClient, morpion);
                     break;
                 case "2":
-                    InterfaceMorpionReseau.morpionCoteSpectateur(JoueurServeur, JoueurClient, morpion);
+                    MorpionReseau.morpionSpectateur(JoueurServeur, JoueurClient, morpion);
                     break;
                 case "3":
                     if (morpion.getNbTour() <= 0) {
-                        InterfaceMorpionReseau.morpionCoteServeur(JoueurServeur, JoueurClient, morpion);
+                        MorpionReseau.morpionServeur(JoueurServeur, JoueurClient, morpion);
                     }
                 case "4":
                     break;
