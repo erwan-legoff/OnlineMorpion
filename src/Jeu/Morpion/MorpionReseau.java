@@ -77,7 +77,7 @@ public class MorpionReseau {
 
         try {
             saisirInfo(joueurServeur);
-            Socket socketClient = Serveur.initialisationServeur();
+            Socket socketClient = Serveur.initialisationServeur(2000);
             ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur = new ThreadServeurEcouteSpectateur();
             threadServeurEcouteSpectateur.setMorpion(morpion);
 

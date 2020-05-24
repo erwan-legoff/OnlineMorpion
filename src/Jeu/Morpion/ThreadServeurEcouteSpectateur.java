@@ -70,7 +70,7 @@ public class ThreadServeurEcouteSpectateur extends Thread {
     public void run_spectateur_seul() {
         try {
 
-            s_service_spectateur= Serveur.initialisationSpectateur();
+            s_service_spectateur= Serveur.initialisationServeur(2001);
 
             sortieServSpec = new PrintStream(new BufferedOutputStream(s_service_spectateur.getOutputStream()));
 
