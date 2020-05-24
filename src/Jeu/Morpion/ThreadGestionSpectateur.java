@@ -23,8 +23,8 @@ public class ThreadGestionSpectateur implements Runnable {
         try { //on fait passer tous les paramètres par adresses, pour pouvoir les envoyer à tout moment par ce thread
             sortieServSpec = new PrintStream(new BufferedOutputStream(socketSpectateur.getOutputStream()));
             System.out.println("On écoute le spectateur sur le "+socketSpectateur);
-            InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
-            InterfaceMRMultiThread.pushInfoJoueurAuSpect(joueurServeur, joueurClient, sortieServSpec);
+            InterfaceMorpionReseau.pushGrille(morpion,sortieServSpec);
+            InterfaceMorpionReseau.pushInfoJoueurAuSpect(joueurServeur, joueurClient, sortieServSpec);
             Client.push(String.valueOf(morpion.getNbTour()),sortieServSpec);
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,8 +41,8 @@ public class ThreadGestionSpectateur implements Runnable {
                 if (joueurClient.doitJouer() && !clientLu) {
                     clientLu = true;
                     serveurLu = false;
-                    InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
-                    InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
+                    InterfaceMorpionReseau.pushGrille(morpion,sortieServSpec);
+                    InterfaceMorpionReseau.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 } //envoie la grille quand le client a joué
                 //TODO: doublon des deux fonctions, elles ne servent qu'à synchroniser finalement...
                 else if( joueurServeur.doitJouer() && !serveurLu) {
@@ -51,8 +51,8 @@ public class ThreadGestionSpectateur implements Runnable {
 
                     // TODO: tester en uploadant le nom
 
-                    InterfaceMRMultiThread.pushGrille(morpion,sortieServSpec);
-                    InterfaceMRMultiThread.pushEtatPartieAuSpec(morpion, sortieServSpec);
+                    InterfaceMorpionReseau.pushGrille(morpion,sortieServSpec);
+                    InterfaceMorpionReseau.pushEtatPartieAuSpec(morpion, sortieServSpec);
                 }//envoie la grille quand le serveur a joué
             }
             Client.push("FIN",sortieServSpec);

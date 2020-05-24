@@ -35,17 +35,7 @@ public class Morpion {
         }
 
     }
-    public void jouer(int idjoueur){
-        if (peutContinuerPartie()) {
-            Joueur joueur = listeDesJoueurs.get(idjoueur);
-            do {
-                System.out.println("C'est a toi de jouer \n");
-                joueur.setPositionJ(saisirEntier() - 1);
-            } while (!estCoupValide(joueur));
-            grilleDuMorpion[joueur.getPositionJ()] = joueur.getPion();
-        }
 
-    }
     public void ajouterUnCoup(int coup, String pion){
         grilleDuMorpion[coup] = pion;
     }
@@ -65,22 +55,7 @@ public class Morpion {
         }
     }
 
-    public Joueur aQuiLeTour(){
-        for (Joueur joueur: listeDesJoueurs
-             ) {
-            if (joueur.doitJouer())
-            {
-                return joueur;
-            }
-            else {
-                System.err.println("problème, ce n'est le tour de personne...");
-                return null;
-            }
 
-        }
-        System.err.println("il n'y a pas de joueur...");
-        return null;
-    }
     public void setNbTour(int nbTour) {
         this.nbTour = nbTour;
     }

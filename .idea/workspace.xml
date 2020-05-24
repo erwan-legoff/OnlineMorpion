@@ -26,6 +26,34 @@
   <component name="ChangeListManager">
     <list default="true" id="7d8c9409-31cb-4c74-aaea-7d74f18574ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/InterfaceMorpionReseau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/JeuMorpion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Jeu/Morpion/Morpion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/MainChat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Serveur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjetTutV2/Reseau/Serveur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/MainClientServeur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/Serveur.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjetTutV2/testSocket/TestThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMRMultiThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/InterfaceMorpionReseauThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/JeuMorpion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/MainApps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/MainApps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/Morpion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jeu/Morpion/ThreadGestionSpectateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reseau/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reseau/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reseau/MainChat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testSocket/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testSocket/MainClientServeur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testSocket/Serveur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testSocket/TestThread.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,19 +109,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MainApps">
-    <configuration name="InterfaceMRMultiThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMRMultiThread" />
-      <module name="ProjetTutV2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Jeu.Morpion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InterfaceMorpionReseau" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMorpionReseau" />
       <module name="ProjetTutV2" />
@@ -109,6 +124,19 @@
     </configuration>
     <configuration name="InterfaceMorpionReseauThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMorpionReseauThread" />
+      <module name="ProjetTutV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Jeu.Morpion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InterfaceMorpionReseau" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Jeu.Morpion.InterfaceMorpionReseau" />
       <module name="ProjetTutV2" />
       <extension name="coverage">
         <pattern>
@@ -136,7 +164,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApps" />
-        <item itemvalue="Application.InterfaceMRMultiThread" />
+        <item itemvalue="Application.InterfaceMorpionReseau" />
         <item itemvalue="Application.InterfaceMorpionReseauThread" />
         <item itemvalue="Application.InterfaceMorpionReseau" />
       </list>
@@ -164,6 +192,8 @@
       <workItem from="1589791661077" duration="1891000" />
       <workItem from="1589793742452" duration="103000" />
       <workItem from="1589875504518" duration="3412000" />
+      <workItem from="1590326249603" duration="319000" />
+      <workItem from="1590326672511" duration="719000" />
     </task>
     <task id="LOCAL-00001" summary="MAJ Spec">
       <created>1588607528052</created>
@@ -437,32 +467,36 @@
     </state>
     <state x="795" y="331" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1588605593881" />
     <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588604044932" />
-    <state width="1877" height="199" key="GridCell.Tab.0.bottom" timestamp="1589878319850">
+    <state width="1877" height="162" key="GridCell.Tab.0.bottom" timestamp="1590326568055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
+    <state width="1877" height="162" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
     <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="1877" height="199" key="GridCell.Tab.0.center" timestamp="1589878319850">
+    <state width="1877" height="162" key="GridCell.Tab.0.center" timestamp="1590326568055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
+    <state width="1877" height="162" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
     <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
-    <state width="1877" height="199" key="GridCell.Tab.0.left" timestamp="1589878319850">
+    <state width="1877" height="162" key="GridCell.Tab.0.left" timestamp="1590326568055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
+    <state width="1877" height="162" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
     <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454668" />
-    <state width="1877" height="199" key="GridCell.Tab.0.right" timestamp="1589878319850">
+    <state width="1877" height="162" key="GridCell.Tab.0.right" timestamp="1590326568055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="140" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1588933281190" />
     <state width="1877" height="199" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589878319850" />
+    <state width="1877" height="162" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590326568055" />
     <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1588608549611" />
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1588607454669" />
     <state x="775" y="474" key="ReplaceDuplicatesPrompt" timestamp="1589218455739">
