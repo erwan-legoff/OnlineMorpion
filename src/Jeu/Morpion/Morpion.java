@@ -31,17 +31,17 @@ public class Morpion {
     }
 
     public void jouer(Joueur joueur){
-        if (peutContinuerPartie()) {
-
-            do {
-                System.out.println("C'est a toi de jouer "+ joueur.getNom());
-                joueur.setPosition(saisirEntier() - 1);
-
-            } while (!estCoupValide(joueur));
-            ajouterUnCoup(joueur.getPosition(), joueur.getPion());
-
-        }
-//        jouerInterface(joueur);
+//        if (peutContinuerPartie()) {
+//
+//            do {
+//                System.out.println("C'est a toi de jouer "+ joueur.getNom());
+//                joueur.setPosition(saisirEntier() - 1);
+//
+//            } while (!estCoupValide(joueur));
+//            ajouterUnCoup(joueur.getPosition(), joueur.getPion());
+//
+//        }
+        jouerInterface(joueur);
 
     }
     public void jouerInterface(Joueur joueur){
@@ -53,7 +53,7 @@ public class Morpion {
 
 
             } while (!estCoupValide(joueur));
-            grilleMorpion[joueur.getPosition()] = joueur.getPion();
+            ajouterUnCoup(joueur.getPosition(), joueur.getPion());
         }
 
     }

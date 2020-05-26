@@ -92,16 +92,24 @@ public class Interface extends JFrame {
                 System.out.println(id[0]);
                 Interface.setIdCoupJoueur(id[0]);
                 for (int i = 1; i <= morpion.getGrilleMorpion().length; i++) {
-                    System.out.println("kokkoook"+morpion.getCaseGrilleMorpion(i));
                     panneau.afficherPion(i,morpion.getCaseGrilleMorpion(i-1));
-                    panneau.updateUI();
+
                 }
-                //panneau.actualiserGrille(morpion);
-//                panneau.afficherPion(id[0],"X");
-
-
+                panneau.revalidate();
+                panneau.repaint();
             }
 
+        });
+        panneau.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                for (int i = 1; i <= morpion.getGrilleMorpion().length; i++) {
+                    panneau.afficherPion(i,morpion.getCaseGrilleMorpion(i-1));
+
+                }
+                panneau.revalidate();
+                panneau.repaint();
+            }
         });
     }
 
