@@ -8,8 +8,8 @@ import java.net.Socket;
 public class ThreadServeurEcouteSpectateur extends Thread {
 
     private Morpion morpion;
-    private Joueur joueurClient;
-    private Joueur joueurServeur;
+    private Joueur jClient;
+    private Joueur jServeur;
 
 
     @Override
@@ -20,7 +20,7 @@ public class ThreadServeurEcouteSpectateur extends Thread {
                 while (morpion.peutContinuerPartie()) {
                     Socket spectateur = s_ecoute.accept();
                     System.out.println("Connexion d'un nouveau spectateur...");
-                    Thread t = new Thread(new ThreadGestionSpectateur(spectateur, morpion, joueurServeur, joueurClient));
+                    Thread t = new Thread(new ThreadGestionSpectateur(spectateur, morpion, jServeur, jClient));
                     t.start();
                     Thread.sleep(10);
                 }
@@ -35,12 +35,12 @@ public class ThreadServeurEcouteSpectateur extends Thread {
         this.morpion = morpion;
     }
 
-    public void setJoueurClient(Joueur joueurClient) {
-        this.joueurClient = joueurClient;
+    public void setjClient(Joueur jClient) {
+        this.jClient = jClient;
     }
 
-    public void setJoueurServeur(Joueur joueurServeur) {
-        this.joueurServeur = joueurServeur;
+    public void setjServeur(Joueur jServeur) {
+        this.jServeur = jServeur;
     }
 
 }

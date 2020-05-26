@@ -1,7 +1,5 @@
 package Jeu.Morpion;
 
-import InterfaceGraphique.Interface;
-import InterfaceGraphique.Panneau;
 import Reseau.Client;
 import Reseau.Serveur;
 
@@ -80,8 +78,8 @@ public class MorpionReseau {
             Socket socketClient = Serveur.initialisationServeur(2000);
             ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur = new ThreadServeurEcouteSpectateur();
             threadServeurEcouteSpectateur.setMorpion(morpion);
-            threadServeurEcouteSpectateur.setJoueurClient(joueurClient);
-            threadServeurEcouteSpectateur.setJoueurServeur(joueurServeur);
+            threadServeurEcouteSpectateur.setjClient(joueurClient);
+            threadServeurEcouteSpectateur.setjServeur(joueurServeur);
             threadServeurEcouteSpectateur.start();
             DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
             PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
@@ -99,7 +97,7 @@ public class MorpionReseau {
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurServeur.setHasPlayed(false);
                 joueurClient.setHasPlayed(true);
-//
+
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
                 joueurClient.setHasPlayed(false);
