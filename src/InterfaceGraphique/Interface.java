@@ -73,7 +73,7 @@ public class Interface extends JFrame {
                     if (e.getX() > largeur * 2 / 3)
                         id[0] = 9;
                 }
-                if (e.getY() > hauteur / 3 && e.getX() < hauteur * 2 / 3) {
+                if (e.getY() > hauteur / 3 && e.getY() < hauteur * 2 / 3) {
                     if (e.getX() < largeur / 3)
                         id[0] = 4;
                     if (e.getX() > largeur / 3 && e.getX() < largeur * 2 / 3)
@@ -89,10 +89,10 @@ public class Interface extends JFrame {
                     if (e.getX() > largeur * 2 / 3)
                         id[0] = 3;
                 }
-                //System.out.println(id[0]);
+                System.out.println(id[0]);
                 Interface.setIdCoupJoueur(id[0]);
 
-                panneau.actualiserGrille(morpion);
+                //panneau.actualiserGrille(morpion);
                 //panneau.afficherPion(id[0],"X");
             }
 

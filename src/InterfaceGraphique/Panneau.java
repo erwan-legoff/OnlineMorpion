@@ -31,8 +31,8 @@ public class Panneau extends JPanel {
         }
         //if(nouvPion){
             //nouvPion=false;
-            g.drawString(pionJ,posX,posY);
-        System.out.println(pionJ);
+            //g.drawString(pionJ,posX,posY);
+        //System.out.println(pionJ);
         //}
     }
 
@@ -80,11 +80,12 @@ public class Panneau extends JPanel {
     }
 
     public void actualiserGrille(Morpion morpion){
-        //tableauMoprion = morpion.getGrilleMorpion();
+        tableauMoprion = morpion.getGrilleMorpion();
+/*
         for (int i = 0; i < morpion.getGrilleMorpion().length; i++) {
             tableauMoprion[i]=morpion.getCaseGrilleMorpion(i);
         }
-
+*/
         for(int i=0;i<tableauMoprion.length;i++){
             this.afficherPion(i+1,"X");
             //System.out.println(tableauMoprion[i]);
