@@ -53,8 +53,7 @@ public class Panneau extends JPanel {
     public void afficherPion(int id, String apparence){
         tableauMoprion[id-1] = apparence;
         pionJ=apparence;
-        //System.out.println(id + apparence);
-        System.out.println("Je suis dans afficher pion " + pionJ);
+
         if(id==7) {
             this.posX = 100;
             this.posY = 100;
