@@ -127,9 +127,9 @@ public class MorpionReseau {
     }
     private static void jouerTour(Morpion morpion,Joueur joueur) {
         System.out.println(morpion);
-        //morpion.incrementerNbTour();
+
         morpion.jouer(joueur);
-        //morpion.incrementerNbTour();
+
         System.out.println(morpion);
 
     }
