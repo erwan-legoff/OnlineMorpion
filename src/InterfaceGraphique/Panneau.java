@@ -34,16 +34,18 @@ public class Panneau extends JPanel {
                 g.drawString(String.valueOf(id), 10 + i * this.getWidth() / 3, 20 + j * this.getHeight() / 3);
             }
         }
+        Font font = new Font("Courier", Font.BOLD, 128);
+        g.setFont(font);
 
-        g.drawString(tableauMoprion[0],100,500);
-        g.drawString(tableauMoprion[1],300,500);
-        g.drawString(tableauMoprion[2],500,500);
-        g.drawString(tableauMoprion[3],100,300);
-        g.drawString(tableauMoprion[4],300,300);
-        g.drawString(tableauMoprion[5],500,300);
-        g.drawString(tableauMoprion[6],100,100);
-        g.drawString(tableauMoprion[7],300,100);
-        g.drawString(tableauMoprion[8],500,100);
+        g.drawString(tableauMoprion[0],50,525);
+        g.drawString(tableauMoprion[1],250,525);
+        g.drawString(tableauMoprion[2],450,525);
+        g.drawString(tableauMoprion[3],50,325);
+        g.drawString(tableauMoprion[4],250,325);
+        g.drawString(tableauMoprion[5],450,325);
+        g.drawString(tableauMoprion[6],50,125);
+        g.drawString(tableauMoprion[7],250,125);
+        g.drawString(tableauMoprion[8],450,125);
 
 
     }
