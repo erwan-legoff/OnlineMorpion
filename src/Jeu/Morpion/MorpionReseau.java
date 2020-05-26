@@ -100,6 +100,7 @@ public class MorpionReseau {
             pushInfoJoueur(joueurServeur, sortieServJoueur);
 
             while (morpion.peutContinuerPartie()){
+                System.out.println("en attente de " + joueurClient.getNom());
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurServeur.setHasPlayed(false);
                 joueurClient.setHasPlayed(true);
@@ -126,15 +127,16 @@ public class MorpionReseau {
     }
     private static void jouerTour(Morpion morpion,Joueur joueur) {
         System.out.println(morpion);
-        morpion.incrementerNbTour();
+        //morpion.incrementerNbTour();
         morpion.jouer(joueur);
-        morpion.incrementerNbTour();
+        //morpion.incrementerNbTour();
         System.out.println(morpion);
 
     }
 
 
     private static void remplirGrille(Morpion morpion,String grille ){
+            morpion.setNbTour(0);
             for (int i = 0; i < grille.length(); i++) {
                 morpion.ajouterUnCoup(i, String.valueOf(grille.charAt(i)));
             }

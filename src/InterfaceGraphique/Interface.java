@@ -61,7 +61,6 @@ public class Interface extends JFrame {
         final int[] id = new int[1];
         int largeur = this.getWidth();
         int hauteur = this.getHeight();
-
         panneau.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 //System.out.println("X = " + e.getX() + " ; Y = " + e.getY());//temporaire

@@ -38,7 +38,8 @@ public class Morpion {
                 joueur.setPosition(saisirEntier() - 1);
 
             } while (!estCoupValide(joueur));
-            grilleMorpion[joueur.getPosition()] = joueur.getPion();
+            ajouterUnCoup(joueur.getPosition(), joueur.getPion());
+
         }
 //        jouerInterface(joueur);
 
@@ -59,6 +60,9 @@ public class Morpion {
 
     public void ajouterUnCoup(int coup, String pion){
         grilleMorpion[coup] = pion;
+        if(!pion.equals(" ")) {
+            incrementerNbTour();
+        }
     }
 
     public boolean estCoupValide(Joueur joueur){
@@ -104,6 +108,7 @@ public class Morpion {
                 System.out.println("Le gagnant est : " + joueur);
         }
     }
+
 
     private boolean partieGagnee() {
         String piont;
