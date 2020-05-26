@@ -75,21 +75,16 @@ public class MorpionReseau {
 
     // TODO: 19/05/2020 erreur quand le serveur gagne le client n'a pas le dernier coup 
     public static void morpionServeur(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
-
         try {
             saisirInfo(joueurServeur);
             Socket socketClient = Serveur.initialisationServeur(2000);
             ThreadServeurEcouteSpectateur threadServeurEcouteSpectateur = new ThreadServeurEcouteSpectateur();
             threadServeurEcouteSpectateur.setMorpion(morpion);
-
             threadServeurEcouteSpectateur.setJoueurClient(joueurClient);
             threadServeurEcouteSpectateur.setJoueurServeur(joueurServeur);
             threadServeurEcouteSpectateur.start();
-
             DataInputStream entreeServJoueur = new DataInputStream(new BufferedInputStream(socketClient.getInputStream()));
             PrintStream sortieServJoueur = new PrintStream(new BufferedOutputStream(socketClient.getOutputStream()));
-
-
 
             pullInfoJoueur(joueurClient, entreeServJoueur);
             while (joueurClient.getPion().equals(joueurServeur.getPion())) {
@@ -104,8 +99,7 @@ public class MorpionReseau {
                 pullCoup(joueurClient,morpion,entreeServJoueur);
                 joueurServeur.setHasPlayed(false);
                 joueurClient.setHasPlayed(true);
-
-                //TODO : attention ce n'est techniquement pas à son tour quand on met que c'est à son tour
+//
                 jouerTour(morpion,joueurServeur);
                 pushCoup(joueurServeur, sortieServJoueur);
                 joueurClient.setHasPlayed(false);
@@ -114,7 +108,6 @@ public class MorpionReseau {
             }
             socketClient.close();
             threadServeurEcouteSpectateur.interrupt();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
