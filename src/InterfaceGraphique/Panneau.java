@@ -29,16 +29,18 @@ public class Panneau extends JPanel {
                 g.drawString(String.valueOf(id), 10 + i * this.getWidth() / 3, 20 + j * this.getHeight() / 3);
             }
         }
-        //if(nouvPion){
-            //nouvPion=false;
-            //g.drawString(pionJ,posX,posY);
-        //System.out.println(pionJ);
-        //}
+        if(nouvPion){
+            nouvPion=false;
+            g.drawString(pionJ,posX,posY);
+            System.out.println("Je suis dans paint component"+pionJ);
+        }
+
     }
 
     public void afficherPion(int id, String apparence){
         pionJ=apparence;
         //System.out.println(id + apparence);
+        System.out.println("Je suis dans afficher pion " + pionJ);
         if(id==7) {
             this.posX = 100;
             this.posY = 100;
@@ -76,7 +78,7 @@ public class Panneau extends JPanel {
             this.posY = 500;
         }
         this.nouvPion=true;
-        this.repaint();
+        repaint();
     }
 
     public void actualiserGrille(Morpion morpion){

@@ -35,7 +35,19 @@ public class Morpion {
 
             do {
                 System.out.println("C'est a toi de jouer "+ joueur.getNom());
-                //joueur.setPosition(saisirEntier() - 1);
+                joueur.setPosition(saisirEntier() - 1);
+
+            } while (!estCoupValide(joueur));
+            grilleMorpion[joueur.getPosition()] = joueur.getPion();
+        }
+//        jouerInterface(joueur);
+
+    }
+    public void jouerInterface(Joueur joueur){
+        if (peutContinuerPartie()) {
+
+            do {
+                System.out.println("C'est a toi de jouer "+ joueur.getNom());
                 joueur.setPosition(Interface.getIdCoupJoueur() - 1);
 
 
