@@ -1,7 +1,6 @@
 package InterfaceGraphique;
 
 import Jeu.Morpion.Morpion;
-
 import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -9,17 +8,9 @@ import java.util.Arrays;
 
 public class Panneau extends JPanel {
 
-    private String pionJ;
-    private int posX;
-    private int posY;
-    private boolean nouvPion;
-    private boolean nouvPionAdversaire;
-
     private static String[] tableauMoprion;
 
     public Panneau(){
-        nouvPion=false;
-        nouvPionAdversaire=false;
         tableauMoprion = new String[9];
         Arrays.fill(tableauMoprion," ");
     }
@@ -36,7 +27,6 @@ public class Panneau extends JPanel {
         }
         Font font = new Font("Courier", Font.BOLD, 128);
         g.setFont(font);
-
         g.drawString(tableauMoprion[0],50,525);
         g.drawString(tableauMoprion[1],250,525);
         g.drawString(tableauMoprion[2],450,525);
@@ -46,53 +36,9 @@ public class Panneau extends JPanel {
         g.drawString(tableauMoprion[6],50,125);
         g.drawString(tableauMoprion[7],250,125);
         g.drawString(tableauMoprion[8],450,125);
-
-
     }
 
     public void afficherPion(int id, String apparence){
         tableauMoprion[id-1] = apparence;
-        pionJ=apparence;
-
-        if(id==7) {
-            this.posX = 100;
-            this.posY = 100;
-        }
-        if(id==8) {
-            this.posX = 300;
-            this.posY = 100;
-        }
-        if(id==9) {
-            this.posX = 500;
-            this.posY = 100;
-        }
-        if(id==4) {
-            this.posX = 100;
-            this.posY = 300;
-        }
-        if(id==5) {
-            this.posX = 300;
-            this.posY = 300;
-        }
-        if(id==6) {
-            this.posX = 500;
-            this.posY = 300;
-        }
-        if(id==1) {
-            this.posX = 100;
-            this.posY = 500;
-        }
-        if(id==2) {
-            this.posX = 300;
-            this.posY = 500;
-        }
-        if(id==3) {
-            this.posX = 500;
-            this.posY = 500;
-        }
-        this.nouvPion=true;
-
     }
-
-
 }
