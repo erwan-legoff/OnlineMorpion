@@ -70,7 +70,7 @@ public class Morpion {
 
         if (joueur.getPosition() < 0 || joueur.getPosition()>8) {
             try{
-                Thread.sleep(3000);
+                Thread.sleep(100);
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
@@ -81,7 +81,7 @@ public class Morpion {
         }
         else {
             try{
-                Thread.sleep(3000);
+                Thread.sleep(100);
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
