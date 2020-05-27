@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="ProjetTutV2:jar">
+  <artifact type="jar" name="ProjetTutV2:jar2">
     <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="ProjetTutV2.jar">
       <element id="module-output" name="ProjetTutV2" />

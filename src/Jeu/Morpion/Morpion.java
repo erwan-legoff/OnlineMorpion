@@ -2,6 +2,7 @@ package Jeu.Morpion;
 
 import InterfaceGraphique.Interface;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -48,7 +49,7 @@ public class Morpion {
         if (peutContinuerPartie()) {
 
             do {
-                System.out.println("C'est a toi de jouer "+ joueur.getNom());
+//                System.out.println("C'est a toi de jouer "+ joueur.getNom());
                 joueur.setPosition(Interface.getIdCoupJoueur() - 1);
 
 
@@ -65,17 +66,25 @@ public class Morpion {
         }
     }
 
-    public boolean estCoupValide(Joueur joueur){
+    public boolean estCoupValide(Joueur joueur) {
 
         if (joueur.getPosition() < 0 || joueur.getPosition()>8) {
-            System.out.println("mauvaise case");
+            try{
+                Thread.sleep(3000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
             return false;
         }
         if (grilleMorpion[joueur.getPosition()] == " ") {
             return true;
         }
         else {
-            System.out.println("Ooohhhh tu sais jouer  ???");
+            try{
+                Thread.sleep(3000);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
             return false;
         }
     }

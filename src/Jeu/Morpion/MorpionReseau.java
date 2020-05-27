@@ -4,20 +4,40 @@ import Reseau.Client;
 import Reseau.Serveur;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class MorpionReseau {
 
-
-
     public static void morpionClient(Joueur joueurServeur, Joueur joueurClient, Morpion morpion) {
         Socket socket;
+        String ip = "localhost";
+        String ipNew = "";
         try {
+
                 saisirInfo(joueurClient); // on renseigne le nom et le piont de son joueur, en mettant à jour le morpion
-                socket = Client.getSocket("localhost",2000);
+                while (true){
+                    System.out.println("Entrer l'ip du serveur:");
+                    Scanner sc = new Scanner(System.in);
+                    ipNew = sc.nextLine();
+                    if(ipNew.isEmpty()){
+                        ipNew = ip;
+                    }
+                    try{
+                        InetAddress.getByName(ipNew);
+                        System.out.println("IP valide");
+                        break;
+                    }catch(UnknownHostException ex){
+                        System.out.println("Adresse IP non valide");
+                    }
+                }
+                System.out.println("Connexion en cours...");
+                socket = Client.getSocket(ipNew,2000);
                 DataInputStream socketEntree = new DataInputStream (new BufferedInputStream(socket.getInputStream()));
                 PrintStream socketSortie = new PrintStream ( new BufferedOutputStream(socket.getOutputStream()));
+                System.out.println("Connexion réussie...");
 
                 pushInfoJoueur(joueurClient, socketSortie);// on envoie nos infos au serveur
 
